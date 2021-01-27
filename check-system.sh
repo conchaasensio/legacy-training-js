@@ -65,6 +65,7 @@ function validateMake() {
 validateDocker
 validateMake
 validateKata tennis-refactoring-kata "cd tennis-refactoring-kata" "make docker-test"
+validateKata user-registration-refactoring-kata "cd user-registration-refactoring-kata" "make docker-test"
 
 if [ -z "$ERROR" ]; then
   echo "Congratulations! You are ready for the training!"

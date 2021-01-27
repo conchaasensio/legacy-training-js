@@ -2,6 +2,7 @@
 
 CALL :validateDocker
 CALL :validateKata tennis-refactoring-kata "docker run --rm -it -v %CD%:/kata codiumteam/tdd-training-js make test"
+CALL :validateKata user-registration-refactoring-kata "docker run --rm -it -v %CD%:/kata codiumteam/tdd-training-js make test"
 
 goto :eof
 

@@ -24,4 +24,7 @@
 TBD
 
 ## Tennis refactoring kata
-TBD
+Kata to practice the identification of bad smells, automated refactorings and enjoying the benefits of having a test harness.
+
+## User registration refactoring kata
+Kata to practice how to identify the different responsibilities in the code and decouple them (both from the framework and from the database and libraries).

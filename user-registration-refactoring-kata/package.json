@@ -1,7 +1,7 @@
 {
-  "name": "tennis-refactoring-kata",
+  "name": "user-registration-refactoring-kata",
   "version": "1.0.0",
-  "description": "Kata to practice refactoring techniques and detect bad smells with the safety of a test harness",
+  "description": "Kata to practice how to identify the different responsibilities in the code and decouple them",
   "main": " ",
   "directories": {
     "lib": "src",
@@ -14,7 +14,6 @@
   },
   "author": "Codium",
   "devDependencies": {
-    "jest": "^26.6.3",
-    "jest-each": "^26.6.2"
+    "jest": "^26.6.3"
   }
 }
