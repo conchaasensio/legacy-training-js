@@ -1,0 +1,20 @@
+{
+  "name": "tennis-refactoring-kata",
+  "version": "1.0.0",
+  "description": "Kata to practice refactoring techniques with a Tennis based code",
+  "main": " ",
+  "directories": {
+    "lib": "src",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "coverage": "jest --coverage"
+  },
+  "author": "Codium",
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "jest-each": "^26.6.2"
+  }
+}
