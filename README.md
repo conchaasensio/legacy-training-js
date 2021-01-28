@@ -37,6 +37,6 @@ TBD
 Kata to practice several refactoring techniques in order to decouple the code and get a better test coverage.
 
 ## Trivia Golden Master kata
-TBD
+Kata to practice the Golden Master technique in order to refactor some legacy code.
 ## Print date
 TBD
