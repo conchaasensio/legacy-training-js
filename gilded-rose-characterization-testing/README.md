@@ -23,7 +23,12 @@ You can to run the test with coverage in order to know if all the paths have bee
 - Use the characterization test technique and code coverage to identify the Backstage passes requirements.
 
 ## How to run mutation testing
-* Option 1: install it locally running `npm i -g stryker-cli`
+* Option 1: without Docker (local installation) 
+  1. run `npm i -g stryker-cli`
+  2. run `make mutation`
+* Option 2: with Docker
+  1. from the root folder of this repo, run `make generate-docker-image`
+  2. run `make docker-mutation`
     
 ## Inspired by:
 https://github.com/emilybache/GildedRose-Refactoring-Kata/

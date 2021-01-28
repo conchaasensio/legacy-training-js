@@ -23,3 +23,6 @@ docker-test-watch:
 
 docker-coverage:
 	@docker run -it --rm -v ${PWD}:/kata codiumteam/tdd-training-js make coverage
+
+docker-mutation:
+	@docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js make mutation
