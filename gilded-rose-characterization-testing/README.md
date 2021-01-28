@@ -22,6 +22,8 @@ You can to run the test with coverage in order to know if all the paths have bee
 - Write unit tests test that validates the business requirements
 - Use the characterization test technique and code coverage to identify the Backstage passes requirements.
 
+## How to run mutation testing
+* Option 1: install it locally running `npm i -g stryker-cli`
     
 ## Inspired by:
 https://github.com/emilybache/GildedRose-Refactoring-Kata/

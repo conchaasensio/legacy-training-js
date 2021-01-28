@@ -19,7 +19,6 @@
 5. Solve the kata.
 
 ## Katas
-
 ## Web page generator kata
 TBD
 
@@ -28,3 +27,6 @@ Kata to practice the identification of bad smells, automated refactorings and en
 
 ## User registration refactoring kata
 Kata to practice how to identify the different responsibilities in the code and decouple them (both from the framework and from the database and libraries).
+
+## Gilded Rose characterization testing
+Kata to practice characterization testing and experience the value of mutation testing.

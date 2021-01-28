@@ -1,7 +1,7 @@
 {
   "name": "gilded-rose-characterization-testing",
   "version": "1.0.0",
-  "description": "Kata to practice XXXXX",
+  "description": "Kata to practice characterization testing",
   "main": " ",
   "directories": {
     "lib": "src",
@@ -10,10 +10,13 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "stryker": "stryker run"
   },
   "author": "Codium",
   "devDependencies": {
+    "@stryker-mutator/core": "^4.4.1",
+    "@stryker-mutator/jest-runner": "^4.4.1",
     "jest": "^26.6.3"
   }
 }

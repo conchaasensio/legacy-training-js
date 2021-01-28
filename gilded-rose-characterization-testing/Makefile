@@ -11,6 +11,10 @@ coverage:
 	npm run coverage
 	@printf "To visualize the lines open the report at coverage/lcov-report/index.html\n"
 
+mutation: test
+	npm run stryker
+	@printf "To visualize the lines open the report at reports/mutation/html/index.html\n"
+
 docker-test:
 	docker run -it --rm -v ${PWD}:/kata codiumteam/tdd-training-js make test
 
