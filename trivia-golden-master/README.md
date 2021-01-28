@@ -21,6 +21,9 @@ Open in a browser the [index file](./index.html)
 * Option 2: from a terminal without Docker
 Run `make run-game`
 
+* Option 3: from a terminal with Docker
+Run `make docker-run-game`
+
 ## Steps
 1. Find a way to save the output from the Trivia Game after one execution.
 2. Apply the Golden Master technique to compare two game executions.

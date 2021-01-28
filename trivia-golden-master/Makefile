@@ -22,3 +22,6 @@ docker-test-watch:
 
 docker-coverage:
 	@docker run -it --rm -v ${PWD}:/kata codiumteam/tdd-training-js make coverage
+
+docker-run-game:
+	@docker run -it --rm -v ${PWD}:/kata codiumteam/tdd-training-js make run-game
