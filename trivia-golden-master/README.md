@@ -1,6 +1,6 @@
 # Trivia Golden Master Kata
 
-## Description:
+## Description
 This is a legacy code kata that simulates the Trivia game.
 
 The code is small but it has a lot of code smells and sometimes it's difficult to understand.
@@ -10,9 +10,16 @@ We will assume it works as expected.
 We would like to modify the existing the code but is difficult to guarantee that we will not break anything. 
 Prior to modifying the code, we will apply the Golden Master technique to create a safety net that will provide us some security when changing the code.
  
-## Goals:
+## Goals
 - Apply the Golden Master technique to ensure the the Trivia game continues working as before when we introduce changes.
 - Optionally you can refactor the code helped with the Golden Master created previously.
+
+## How to run the game
+* Option 1: from a browser
+Open in a browser the [index file](./index.html)
+
+* Option 2: from a terminal without Docker
+Run `make run-game`
 
 ## Steps
 1. Find a way to save the output from the Trivia Game after one execution.
