@@ -15,13 +15,10 @@ Prior to modifying the code, we will apply the Golden Master technique to create
 - Optionally you can refactor the code helped with the Golden Master created previously.
 
 ## How to run the game
-* Option 1: from a browser
-Open in a browser the [index file](./index.html)
-
-* Option 2: from a terminal without Docker
+* Option 1: from a terminal without Docker
 Run `make run-game`
 
-* Option 3: from a terminal with Docker
+* Option 2: from a terminal with Docker
 Run `make docker-run-game`
 
 ## Steps

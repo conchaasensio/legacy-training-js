@@ -8,7 +8,7 @@
     "test": "test"
   },
   "scripts": {
-    "game": "node src/game.js",
+    "game": "node src/game_runner.js",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "coverage": "jest --coverage"
