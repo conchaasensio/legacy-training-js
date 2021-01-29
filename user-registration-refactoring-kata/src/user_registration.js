@@ -1,5 +1,3 @@
-class UserRegistration {
-
-}
+class UserRegistration {}
 
 module.exports = UserRegistration;

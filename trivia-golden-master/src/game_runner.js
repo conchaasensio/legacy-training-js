@@ -1,5 +1,5 @@
-const { constants } = require('fs');
-const Game = require('./game');
+const { constants } = require("fs");
+const Game = require("./game");
 
 var notAWinner = false;
 

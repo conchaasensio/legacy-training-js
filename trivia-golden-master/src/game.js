@@ -1,6 +1,6 @@
 exports = typeof window !== "undefined" && window !== null ? window : global;
 
-function Game () {
+function Game() {
   var players = new Array();
   var places = new Array(6);
   var purses = new Array(6);
@@ -161,6 +161,6 @@ function Game () {
     if (currentPlayer == players.length) currentPlayer = 0;
     return true;
   };
-};
+}
 
 module.exports = Game;

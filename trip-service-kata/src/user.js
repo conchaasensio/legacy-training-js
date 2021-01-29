@@ -1,5 +1,3 @@
 "use strict";
 
-module.exports = class User {
-
-}
+module.exports = class User {};
