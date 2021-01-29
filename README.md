@@ -32,7 +32,7 @@ Kata to practice how to identify the different responsibilities in the code and 
 Kata to practice characterization testing and experience the value of mutation testing.
 
 ### Weather kata
-TBD
+Kata to practice deoupling code and removing an external dependency in order to make the tests repeatable and fast.
 ### Trip Service kata
 Kata to practice several refactoring techniques in order to decouple the code and get a better test coverage.
 

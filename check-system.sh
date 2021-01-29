@@ -67,6 +67,7 @@ validateMake
 validateKata tennis-refactoring-kata "cd tennis-refactoring-kata" "make docker-test"
 validateKata user-registration-refactoring-kata "cd user-registration-refactoring-kata" "make docker-test"
 validateKata gilded-rose-characterization-testing "cd gilded-rose-characterization-testing" "make docker-test"
+validateKata weather-kata "cd weather-kata" "make docker-test"
 validateKata trip-service-kata "cd trip-service-kata" "make docker-test"
 validateKata trivia-golden-master "cd trivia-golden-master" "make docker-test"
 validateKata print-date "cd print-date" "make docker-test"

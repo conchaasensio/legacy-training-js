@@ -4,6 +4,7 @@ CALL :validateDocker
 CALL :validateKata tennis-refactoring-kata "docker run --rm -it -v %CD%:/kata codiumteam/legacy-training-js make test"
 CALL :validateKata user-registration-refactoring-kata "docker run --rm -it -v %CD%:/kata codiumteam/legacy-training-js make test"
 CALL :validateKata gilded-rose-characterization-testing "docker run --rm -it -v %CD%:/kata codiumteam/legacy-training-js make test"
+CALL :validateKata weather-kata "docker run --rm -it -v %CD%:/kata codiumteam/legacy-training-js make test"
 CALL :validateKata trip-service-kata "docker run --rm -it -v %CD%:/kata codiumteam/legacy-training-js make test"
 CALL :validateKata trivia-golden-master "docker run --rm -it -v %CD%:/kata codiumteam/legacy-training-js make test"
 CALL :validateKata print-date "docker run --rm -it -v %CD%:/kata codiumteam/legacy-training-js make test"
