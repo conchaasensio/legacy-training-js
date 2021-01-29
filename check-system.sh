@@ -68,6 +68,8 @@ validateKata tennis-refactoring-kata "cd tennis-refactoring-kata" "make docker-t
 validateKata user-registration-refactoring-kata "cd user-registration-refactoring-kata" "make docker-test"
 validateKata gilded-rose-characterization-testing "cd gilded-rose-characterization-testing" "make docker-test"
 validateKata trip-service-kata "cd trip-service-kata" "make docker-test"
+validateKata trivia-golden-master "cd trivia-golden-master" "make docker-test"
+validateKata print-date "cd print-date" "make docker-test"
 
 if [ -z "$ERROR" ]; then
   echo "Congratulations! You are ready for the training!"

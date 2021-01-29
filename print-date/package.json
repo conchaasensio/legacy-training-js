@@ -1,0 +1,19 @@
+{
+  "name": "print-date",
+  "version": "1.0.0",
+  "description": "Kata to practice test doubles",
+  "main": " ",
+  "directories": {
+    "lib": "src",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "coverage": "jest --coverage"
+  },
+  "author": "Codium",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
