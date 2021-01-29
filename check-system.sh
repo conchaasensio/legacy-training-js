@@ -29,7 +29,7 @@ function validateDocker() {
     fi
 
     echo -n "Downloading the docker image..."
-    (docker pull codiumteam/tdd-training-js) > /dev/null
+    (docker pull codiumteam/legacy-training-js) > /dev/null
     if [ $? -ne 0 ]; then
       echo "Error"
       echo "There is a problem downloading the docker image"
@@ -39,7 +39,7 @@ function validateDocker() {
     fi
 
     echo -n "Validating docker mount permissions..."
-    (docker run -it --rm -v ${PWD}:/kata codiumteam/tdd-training-js ls) > /dev/null
+    (docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js ls) > /dev/null
     if [ $? -ne 0 ]; then
       echo "Error"
       echo "Are you sure that you have permissions to mount your volumes?"

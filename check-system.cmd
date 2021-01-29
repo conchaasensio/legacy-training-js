@@ -1,10 +1,10 @@
 @echo off
 
 CALL :validateDocker
-CALL :validateKata tennis-refactoring-kata "docker run --rm -it -v %CD%:/kata codiumteam/tdd-training-js make test"
-CALL :validateKata user-registration-refactoring-kata "docker run --rm -it -v %CD%:/kata codiumteam/tdd-training-js make test"
-CALL :validateKata gilded-rose-characterization-testing "docker run --rm -it -v %CD%:/kata codiumteam/tdd-training-js make test"
-CALL :validateKata trip-service-kata "docker run --rm -it -v %CD%:/kata codiumteam/tdd-training-js make test"
+CALL :validateKata tennis-refactoring-kata "docker run --rm -it -v %CD%:/kata codiumteam/legacy-training-js make test"
+CALL :validateKata user-registration-refactoring-kata "docker run --rm -it -v %CD%:/kata codiumteam/legacy-training-js make test"
+CALL :validateKata gilded-rose-characterization-testing "docker run --rm -it -v %CD%:/kata codiumteam/legacy-training-js make test"
+CALL :validateKata trip-service-kata "docker run --rm -it -v %CD%:/kata codiumteam/legacy-training-js make test"
 
 goto :eof
 
@@ -27,7 +27,7 @@ goto :eof
     )
 
     echo Downloading docker image...
-    docker pull codiumteam/tdd-training-js >NUL: 2>NUL:
+    docker pull codiumteam/legacy-training-js >NUL: 2>NUL:
     IF ERRORLEVEL 1 (
       echo Error
       echo There is a problem downloading the docker image
@@ -37,7 +37,7 @@ goto :eof
     )
 
     echo Validating docker mount permissions...
-    docker run --rm -v "%CD%":/kata -w /kata codiumteam/tdd-training-js ls >NUL: 2>NUL:
+    docker run --rm -v "%CD%":/kata -w /kata codiumteam/legacy-training-js ls >NUL: 2>NUL:
     IF ERRORLEVEL 1 (
       echo Error
       echo Are you sure that you have permissions to mount your volumes?
