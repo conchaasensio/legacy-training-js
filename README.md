@@ -19,24 +19,24 @@
 5. Solve the kata.
 
 ## Katas
-## Web page generator kata
+### Web page generator kata
 TBD
 
-## Tennis refactoring kata
+### Tennis refactoring kata
 Kata to practice the identification of bad smells, automated refactorings and enjoying the benefits of having a test harness.
 
-## User registration refactoring kata
+### User registration refactoring kata
 Kata to practice how to identify the different responsibilities in the code and decouple them (both from the framework and from the database and libraries).
 
-## Gilded Rose characterization testing
+### Gilded Rose characterization testing
 Kata to practice characterization testing and experience the value of mutation testing.
 
-## Weather kata
+### Weather kata
 TBD
-## Trip Service kata
+### Trip Service kata
 Kata to practice several refactoring techniques in order to decouple the code and get a better test coverage.
 
-## Trivia Golden Master kata
+### Trivia Golden Master kata
 Kata to practice the Golden Master technique in order to refactor some legacy code.
-## Print date
-TBD
+### Print date
+Kata to practice test doubles.
