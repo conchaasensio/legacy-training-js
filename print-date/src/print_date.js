@@ -1,7 +1,13 @@
 class PrintDate {
+  constructor(calendar, printer) {
+    this.calendar = calendar;
+    this.printer = printer;
+  }
+
   printCurrentDate() {
-    return console.log(new Date());
+    const today = this.calendar.today();
+    this.printer.printLine(today);
   }
 }
 
-module.exports.PrintDate = PrintDate;
+module.exports = PrintDate;
