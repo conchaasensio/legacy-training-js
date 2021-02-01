@@ -7,6 +7,9 @@ test:
 test-watch:
 	npm run test:watch
 
+server:
+	npm run server
+
 coverage:
 	npm run coverage
 	@printf "To visualize the lines open the report at coverage/lcov-report/index.html\n"
