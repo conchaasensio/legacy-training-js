@@ -20,7 +20,7 @@
 
 ## Katas
 ### Web page generator kata
-TBD
+Kata to practice Sprout/Wrap method/class.
 
 ### Tennis refactoring kata
 Kata to practice the identification of bad smells, automated refactorings and enjoying the benefits of having a test harness.

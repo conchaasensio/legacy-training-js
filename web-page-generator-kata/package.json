@@ -1,0 +1,16 @@
+{
+  "name": "web-page-generator-kata",
+  "version": "1.0.0",
+  "description": "Kata to practice Sprout/Wrap method/class",
+  "main": " ",
+  "directories": {
+    "lib": "src"
+  },
+  "scripts": {
+    "generate-webpage": "node src/users_static_webpage_generator.js"
+  },
+  "author": "Codium",
+  "devDependencies": {
+    "http": "0.0.1-security"
+  }
+}
