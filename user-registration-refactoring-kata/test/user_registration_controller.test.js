@@ -17,4 +17,16 @@ describe("UserRegistrationController", () => {
     expect(response.body.message).toBe("pass!");
     done();
   });
+
+  it('should register a new user', async () => {
+    const res = await request
+      .post('/users')
+      .send({
+        name: 'Pepito',
+        email: 'pepito@gmail.com',
+        password: 'thisismypassword',
+      })
+    expect(res.statusCode).toEqual(201)
+    expect(res.body).toHaveProperty('user')
+  })  
 });

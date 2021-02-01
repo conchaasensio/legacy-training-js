@@ -1,3 +1,3 @@
-class UserRegistration {}
+class UserRegistrationController {}
 
-module.exports = UserRegistration;
+module.exports = UserRegistrationController;
