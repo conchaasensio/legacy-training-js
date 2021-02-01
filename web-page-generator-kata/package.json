@@ -7,7 +7,7 @@
     "lib": "src"
   },
   "scripts": {
-    "generate-webpage": "node src/users_static_webpage_generator.js"
+    "generate-webpage": "node src/main.js"
   },
   "author": "Codium",
   "devDependencies": {
