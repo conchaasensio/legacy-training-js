@@ -22,3 +22,6 @@ docker-test-watch:
 
 docker-coverage:
 	@docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js make coverage
+
+docker-server:
+	@docker run -it --rm -p 3000:3000 -v ${PWD}:/kata codiumteam/legacy-training-js make server
