@@ -28,5 +28,6 @@ describe("UserRegistrationController", () => {
       })
     expect(res.statusCode).toEqual(201)
     expect(res.body).toHaveProperty('user')
+    expect(res.body.user).toEqual({"email": "pepito@gmail.com", "name": "Pepito"})
   })  
 });
