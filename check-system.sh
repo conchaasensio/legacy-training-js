@@ -64,7 +64,7 @@ function validateMake() {
 
 validateDocker
 validateMake
-validateKata web-page-generator-kata "cd web-page-generator-kata" "make docker-run"
+validateKata web-page-generator-kata "cd web-page-generator-kata" "make docker-generate-webpage"
 validateKata tennis-refactoring-kata "cd tennis-refactoring-kata" "make docker-test"
 validateKata user-registration-refactoring-kata "cd user-registration-refactoring-kata" "make docker-test"
 validateKata gilded-rose-characterization-testing "cd gilded-rose-characterization-testing" "make docker-test"

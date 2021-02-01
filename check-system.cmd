@@ -1,7 +1,7 @@
 @echo off
 
 CALL :validateDocker
-CALL :validateKata web-page-generator-kata "docker run --rm -it -v %CD%:/kata codiumteam/legacy-training-js make run"
+CALL :validateKata web-page-generator-kata "docker run --rm -it -v %CD%:/kata codiumteam/legacy-training-js make generate-webpage"
 CALL :validateKata tennis-refactoring-kata "docker run --rm -it -v %CD%:/kata codiumteam/legacy-training-js make test"
 CALL :validateKata user-registration-refactoring-kata "docker run --rm -it -v %CD%:/kata codiumteam/legacy-training-js make test"
 CALL :validateKata gilded-rose-characterization-testing "docker run --rm -it -v %CD%:/kata codiumteam/legacy-training-js make test"

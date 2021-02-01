@@ -6,5 +6,5 @@ generate-webpage:
 	npm run generate-webpage
 	@echo "Webpage generated at html/users.html"
 
-docker-run:
-	docker run --rm -v ${PWD}:/opt/project -v ${PWD}/../.m2:/root/.m2 -w /opt/project codium-legacytraining make run
+docker-generate-webpage:
+	@docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js make generate-webpage
