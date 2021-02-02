@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const { StatusCodes } = require("http-status-codes");
+const UserOrmRepository = require("./user_orm_repository");
 
 app.use(express.json());
 
@@ -15,8 +16,16 @@ app.get("/test", async (req, res) => {
 app.post("/users", async (req, res) => {
   const { name, email, password } = req.body;
   if (password.length <= 8 || !password.includes("_")) {
-    return res.status(StatusCodes.BAD_REQUEST).json("The password is not valid!");
-  } 
+    return res
+      .status(StatusCodes.BAD_REQUEST)
+      .json("The password is not valid!");
+  }
+  console.log(new UserOrmRepository().findByEmail(email));
+  if (new UserOrmRepository().findByEmail(email) !== undefined) {
+    return res
+      .status(StatusCodes.BAD_REQUEST)
+      .json("The email is already in use");
+  }
   return res.status(StatusCodes.CREATED).json({ user: { name, email } });
 });
 

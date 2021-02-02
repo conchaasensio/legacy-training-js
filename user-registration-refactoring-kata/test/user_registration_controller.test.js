@@ -69,16 +69,16 @@ describe("UserRegistrationController", () => {
     expect(res.body).toBe("The password is not valid!");
   });
 
-  xit("should_fail_when_email_is_used", async () => {
+  it("should_fail_when_email_is_used", async () => {
     await request.post("/users").send({
       name: USER_NAME,
-      email: USER_EMAIL,
+      email: "existing@email.com",
       password: VALID_PASSWORD,
     });
 
     const res = await request.post("/users").send({
       name: USER_NAME,
-      email: USER_EMAIL,
+      email: "existing@email.com",
       password: VALID_PASSWORD,
     });
 
