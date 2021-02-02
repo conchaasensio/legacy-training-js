@@ -1,15 +1,13 @@
 const nodemailer = require('nodemailer');
-const {StatusCodes} = require('http-status-codes');
-
-const userRepository = require('./user_orm_repository');
+const orm = require('./user_orm_repository');
 const InvalidPasswordError = require('./InvalidPasswordError');
 const EmailAlreadyInUseError = require('./EmailAlreadyInUseError');
 
-async function createUser(res, password, name, email) {
+async function createUser(password, name, email) {
     if (password.length <= 8 || !password.includes('_')) {
         throw new InvalidPasswordError();
     }
-    if (userRepository.findByEmail(email) !== undefined) {
+    if (orm.findByEmail(email) !== undefined) {
         throw new EmailAlreadyInUseError();
     }
 
@@ -20,7 +18,7 @@ async function createUser(res, password, name, email) {
         password: password,
     };
 
-    userRepository.save(user);
+    orm.save(user);
 
     //Send a confirmation email
     const transporter = nodemailer.createTransport({
@@ -41,7 +39,7 @@ async function createUser(res, password, name, email) {
   });
      */
 
-    return res.status(StatusCodes.CREATED).json({user});
+    return user;
 }
 
 module.exports = createUser;

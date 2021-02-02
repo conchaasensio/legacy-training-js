@@ -8,7 +8,8 @@ const EmailAlreadyInUseError = require('./EmailAlreadyInUseError');
 server.use(express.json());
 
 server.post('/users', (req, res) => {
-    return createUser(res, req.body.password, req.body.name, req.body.email)
+    return createUser(req.body.password, req.body.name, req.body.email)
+    .then(user => res.status(StatusCodes.CREATED).json({user}))
     .catch(err => {
         if (err instanceof InvalidPasswordError) {
             return res
