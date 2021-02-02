@@ -1,18 +1,16 @@
-const nodemailer = require("nodemailer");
-const { StatusCodes } = require("http-status-codes");
+const nodemailer = require('nodemailer');
+const {StatusCodes} = require('http-status-codes');
 
-const userRepository = require("./user_orm_repository");
+const userRepository = require('./user_orm_repository');
+const InvalidPasswordError = require('./InvalidPasswordError');
+const EmailAlreadyInUseError = require('./EmailAlreadyInUseError');
 
-async function createUser(res, password, name , email ) {
+async function createUser(res, password, name, email) {
     if (password.length <= 8 || !password.includes('_')) {
-        return res
-        .status(StatusCodes.BAD_REQUEST)
-        .json('The password is not valid!');
+        throw new InvalidPasswordError();
     }
     if (userRepository.findByEmail(email) !== undefined) {
-        return res
-        .status(StatusCodes.BAD_REQUEST)
-        .json('The email is already in use');
+        throw new EmailAlreadyInUseError();
     }
 
     const user = {
