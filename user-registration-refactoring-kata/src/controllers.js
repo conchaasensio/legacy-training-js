@@ -6,13 +6,12 @@ const userRepository = new UserOrmRepository();
 const MAX_USER_ID = 99999;
 
 const registerUser = async (req, res) => {
-  const { name, email, password } = req.body;
-  if (password.length <= 8 || !password.includes("_")) {
+  if (req.body.password.length <= 8 || !req.body.password.includes("_")) {
     return res
       .status(StatusCodes.BAD_REQUEST)
       .json("The password is not valid!");
   }
-  if (userRepository.findByEmail(email) !== undefined) {
+  if (userRepository.findByEmail(req.body.email) !== undefined) {
     return res
       .status(StatusCodes.BAD_REQUEST)
       .json("The email is already in use");
@@ -49,4 +48,4 @@ function generateUserId() {
 
 module.exports = {
   registerUser,
-}
+};
