@@ -18,16 +18,17 @@ describe("UserRegistrationController", () => {
     done();
   });
 
-  it('should register a new user', async () => {
+  it('should_success_when_everything_is_valid', async () => {
     const res = await request
       .post('/users')
       .send({
-        name: 'Pepito',
-        email: 'pepito@gmail.com',
-        password: 'thisismypassword',
+        name: 'Codium',
+        email: 'my@email.com',
+        password: 'myPass_123123',
       })
+
     expect(res.statusCode).toEqual(201)
     expect(res.body).toHaveProperty('user')
-    expect(res.body.user).toEqual({"email": "pepito@gmail.com", "name": "Pepito"})
+    expect(res.body.user).toEqual({"email": "my@email.com", "name": "Codium"})
   })  
 });
