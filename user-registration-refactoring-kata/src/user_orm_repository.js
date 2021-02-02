@@ -1,16 +1,15 @@
-const users = new Map();
 
 module.exports = {
-
+  users: new Map(),
   save(user) {
-    users.set(user.email, user);
+    this.users.set(user.email, user);
   },
-
+  
   findByEmail(email) {
-    return users.get(email);
+    return this.users.get(email);
   },
 
   flush() {
-    users.clear();
+    this.users.clear();
   },
 };
