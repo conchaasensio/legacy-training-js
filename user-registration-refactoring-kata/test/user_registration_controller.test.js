@@ -1,4 +1,4 @@
-const server = require("../src/server"); // Link to your server file
+const server = require("../src/server");
 const UserOrmRepository = require("../src/user_orm_repository");
 const { StatusCodes } = require("http-status-codes");
 const supertest = require("supertest");
