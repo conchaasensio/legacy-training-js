@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const { StatusCodes } = require("http-status-codes");
+const User = require("./user");
 const UserOrmRepository = require("./user_orm_repository");
 
 app.use(express.json());
@@ -26,7 +27,7 @@ app.post("/users", async (req, res) => {
       .status(StatusCodes.BAD_REQUEST)
       .json("The email is already in use");
   }
-  return res.status(StatusCodes.CREATED).json({ user: { name, email } });
+  return res.status(StatusCodes.CREATED).json({ user: new User(1, name, email, password) });
 });
 
 module.exports = app;
