@@ -2,6 +2,7 @@ const app = require("../src/server"); // Link to your server file
 const UserOrmRepository = require("../src/user_orm_repository");
 const { StatusCodes } = require("http-status-codes");
 const supertest = require("supertest");
+const User = require("../src/user");
 const request = supertest(app);
 
 const USER_NAME = "Codium";
@@ -12,14 +13,6 @@ describe("UserRegistrationController", () => {
   beforeEach(function () {
     UserOrmRepository.flush();
   });
-
-  xit("gets the test endpoint", async (done) => {
-    const response = await request.get("/test");
-
-    expect(response.status).toBe(StatusCodes.OK);
-    expect(response.body.message).toBe("pass!");
-  });
-
 
   it("should_success_when_everything_is_valid", async () => {
     const res = await request.post("/users").send({
@@ -101,7 +94,17 @@ describe("UserRegistrationController", () => {
     expect(res.body.user.id).not.toEqual(1);
   });
 
-  xit("should_persist_the_user", async () => {
-    //TODO
+  it("should_persist_the_user", async () => {
+    await request.post("/users").send({
+      name: USER_NAME,
+      email: USER_EMAIL,
+      password: VALID_PASSWORD,
+    });
+
+    const user = new UserOrmRepository().findByEmail(USER_EMAIL);
+    expect(user.id).not.toBe(undefined);
+    expect(user).toHaveProperty("name", USER_NAME);
+    expect(user).toHaveProperty("email", USER_EMAIL);
+    expect(user).toHaveProperty("password", VALID_PASSWORD);
   });
 });
