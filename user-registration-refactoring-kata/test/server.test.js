@@ -9,7 +9,7 @@ const VALID_PASSWORD = "myPass_123123";
 
 const request = supertest(server);
 
-describe("UserRegistrationController", () => {
+describe("User registration server", () => {
 
   beforeEach(function () {
     userOrmRepository.flush();

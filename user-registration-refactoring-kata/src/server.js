@@ -1,8 +1,8 @@
-const express = require('express');
-const nodemailer = require('nodemailer');
-const { StatusCodes } = require('http-status-codes');
+const express = require("express");
+const nodemailer = require("nodemailer");
+const { StatusCodes } = require("http-status-codes");
 
-const userRepository = require('./user_orm_repository');
+const userRepository = require("./user_orm_repository");
 
 const server = express();
 
