@@ -40,6 +40,19 @@ describe("UserRegistrationController", () => {
       password: "myPass_123123",
     });
 
+    //TODO: expect(res.body.post).toHaveProperty('title', 'updated title');
+    //TODO: extract constants for name, email and valid password
     expect(res.body.user.name).toEqual("Codium");
   });  
+
+  it("should_fail_when_password_is_short", async () => {
+    const res = await request.post("/users").send({
+      name: "Codium",
+      email: "my@email.com",
+      password: "myPass_",
+    });
+
+    expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
+    expect(res.body).toBe("The password is not valid!");
+  });   
 });
