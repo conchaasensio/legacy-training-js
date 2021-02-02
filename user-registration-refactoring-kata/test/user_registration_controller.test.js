@@ -30,7 +30,16 @@ describe("UserRegistrationController", () => {
       password: "myPass_123123",
     });
 
-    expect(res.body).toHaveProperty("user");
     expect(res.body.user.email).toEqual("my@email.com");
   });
+
+  it("should_returns_a_user_with_the_name_when_everything_is_valid", async () => {
+    const res = await request.post("/users").send({
+      name: "Codium",
+      email: "my@email.com",
+      password: "myPass_123123",
+    });
+
+    expect(res.body.user.name).toEqual("Codium");
+  });  
 });
