@@ -2,7 +2,10 @@ const app = require("../src/server"); // Link to your server file
 const { StatusCodes } = require("http-status-codes");
 const supertest = require("supertest");
 const request = supertest(app);
-let UserRegistration = require("../src/user_registration_controller");
+
+const USER_NAME = "Codium";
+const USER_EMAIL = "my@email.com";
+const VALID_PASSWORD = "myPass_123123";
 
 describe("UserRegistrationController", () => {
   it("gets the test endpoint", async (done) => {
@@ -13,11 +16,12 @@ describe("UserRegistrationController", () => {
     done();
   });
 
+
   it("should_success_when_everything_is_valid", async () => {
     const res = await request.post("/users").send({
-      name: "Codium",
-      email: "my@email.com",
-      password: "myPass_123123",
+      name: USER_NAME,
+      email: USER_EMAIL,
+      password: VALID_PASSWORD,
     });
 
     expect(res.statusCode).toEqual(StatusCodes.CREATED);
@@ -25,34 +29,32 @@ describe("UserRegistrationController", () => {
 
   it("should_return_a_user_with_the_email_when_everything_is_valid", async () => {
     const res = await request.post("/users").send({
-      name: "Codium",
-      email: "my@email.com",
-      password: "myPass_123123",
+      name: USER_NAME,
+      email: USER_EMAIL,
+      password: VALID_PASSWORD,
     });
 
-    expect(res.body.user.email).toEqual("my@email.com");
+    expect(res.body.user.email).toEqual(USER_EMAIL);
   });
 
   it("should_returns_a_user_with_the_name_when_everything_is_valid", async () => {
     const res = await request.post("/users").send({
-      name: "Codium",
-      email: "my@email.com",
-      password: "myPass_123123",
+      name: USER_NAME,
+      email: USER_EMAIL,
+      password: VALID_PASSWORD,
     });
 
-    //TODO: expect(res.body.post).toHaveProperty('title', 'updated title');
-    //TODO: extract constants for name, email and valid password
-    expect(res.body.user.name).toEqual("Codium");
-  });  
+    expect(res.body.user).toHaveProperty("name", USER_NAME);
+  });
 
   it("should_fail_when_password_is_short", async () => {
     const res = await request.post("/users").send({
-      name: "Codium",
-      email: "my@email.com",
+      name: USER_NAME,
+      email: USER_EMAIL,
       password: "myPass_",
     });
 
     expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
     expect(res.body).toBe("The password is not valid!");
-  });   
+  });
 });
