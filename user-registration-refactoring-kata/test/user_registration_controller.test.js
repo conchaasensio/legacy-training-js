@@ -1,4 +1,5 @@
 const app = require("../src/server"); // Link to your server file
+const UserOrmRepository = require("../src/user_orm_repository");
 const { StatusCodes } = require("http-status-codes");
 const supertest = require("supertest");
 const request = supertest(app);
@@ -8,12 +9,15 @@ const USER_EMAIL = "my@email.com";
 const VALID_PASSWORD = "myPass_123123";
 
 describe("UserRegistrationController", () => {
-  it("gets the test endpoint", async (done) => {
+  beforeEach(function () {
+    UserOrmRepository.flush();
+  });
+
+  xit("gets the test endpoint", async (done) => {
     const response = await request.get("/test");
 
     expect(response.status).toBe(StatusCodes.OK);
     expect(response.body.message).toBe("pass!");
-    done();
   });
 
 
@@ -72,13 +76,13 @@ describe("UserRegistrationController", () => {
   it("should_fail_when_email_is_used", async () => {
     await request.post("/users").send({
       name: USER_NAME,
-      email: "existing@email.com",
+      email: USER_EMAIL,
       password: VALID_PASSWORD,
     });
 
     const res = await request.post("/users").send({
       name: USER_NAME,
-      email: "existing@email.com",
+      email: USER_EMAIL,
       password: VALID_PASSWORD,
     });
 

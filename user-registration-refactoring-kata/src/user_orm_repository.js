@@ -1,21 +1,18 @@
 const User = require("./user");
 
 class UserOrmRepository {
-
-  constructor() {
-      this.users = new Map();
-  }
+  static users = new Map();
 
   save(user) {
-    this.users.set(user.email, user);
-    console.log(this.users.get(user.email));
+    UserOrmRepository.users.set(user.email, user);
   }
 
   findByEmail(email) {
-    if (email === "existing@email.com") {
-      return new User(1, "Pepito", "existing@email.com", "anyPassword");
-    }
-    return this.users.get(email);
+    return UserOrmRepository.users.get(email);
+  }
+
+  static flush() {
+    UserOrmRepository.users = new Map();
   }
 }
 
