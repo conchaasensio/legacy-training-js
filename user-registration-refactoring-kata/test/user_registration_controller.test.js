@@ -57,4 +57,15 @@ describe("UserRegistrationController", () => {
     expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
     expect(res.body).toBe("The password is not valid!");
   });
+
+  it("should_fail_when_password_does_not_contain_underscore", async () => {
+    const res = await request.post("/users").send({
+      name: USER_NAME,
+      email: USER_EMAIL,
+      password: "myPass123123",
+    });
+
+    expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
+    expect(res.body).toBe("The password is not valid!");
+  });
 });
