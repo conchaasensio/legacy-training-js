@@ -68,4 +68,36 @@ describe("UserRegistrationController", () => {
     expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
     expect(res.body).toBe("The password is not valid!");
   });
+
+  xit("should_fail_when_email_is_used", async () => {
+    await request.post("/users").send({
+      name: USER_NAME,
+      email: USER_EMAIL,
+      password: VALID_PASSWORD,
+    });
+
+    const res = await request.post("/users").send({
+      name: USER_NAME,
+      email: USER_EMAIL,
+      password: VALID_PASSWORD,
+    });
+
+    expect(res.statusCode).toEqual(StatusCodes.BAD_REQUEST);
+    expect(res.body).toBe("The email is already in use");
+  });
+
+  xit("should_generate_a_random_id_when_everything_is_valid", async () => {
+    const res = await request.post("/users").send({
+      name: USER_NAME,
+      email: USER_EMAIL,
+      password: VALID_PASSWORD,
+    });
+
+    expect(res.body.user).toHaveProperty("id");
+    expect(res.body.user.id).not.toEqual(1);
+  });
+
+  xit("should_persist_the_user", async () => {
+    //TODO
+  });
 });
