@@ -1,9 +1,8 @@
 const server = require("../src/server");
+const supertest = require("supertest");
+const request = supertest(server);
 const UserOrmRepository = require("../src/user_orm_repository");
 const { StatusCodes } = require("http-status-codes");
-const supertest = require("supertest");
-const User = require("../src/user");
-const request = supertest(server);
 
 const USER_NAME = "Codium";
 const USER_EMAIL = "my@email.com";

@@ -1,5 +1,3 @@
-const User = require("./user");
-
 class UserOrmRepository {
   static users = new Map();
 
