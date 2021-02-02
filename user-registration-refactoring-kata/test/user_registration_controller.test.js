@@ -90,7 +90,7 @@ describe("UserRegistrationController", () => {
     expect(res.body).toBe("The email is already in use");
   });
 
-  xit("should_generate_a_random_id_when_everything_is_valid", async () => {
+  it("should_generate_a_random_id_when_everything_is_valid", async () => {
     const res = await request.post("/users").send({
       name: USER_NAME,
       email: USER_EMAIL,

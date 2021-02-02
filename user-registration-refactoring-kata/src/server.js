@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const { StatusCodes } = require("http-status-codes");
 const User = require("./user");
+const MAX_USER_ID = 99999;
 const UserOrmRepository = require("./user_orm_repository");
 const userRepository = new UserOrmRepository();
 
@@ -28,12 +29,16 @@ app.post("/users", async (req, res) => {
       .json("The email is already in use");
   }
   
-  const user = new User(1, name, email, password);
+  const user = new User(generateUserId(), name, email, password);
   userRepository.save(user);
 
   //TODO: send a confirmation email
 
   return res.status(StatusCodes.CREATED).json({ user });
 });
+
+function generateUserId() {
+  return Math.floor(Math.random() * Math.floor(MAX_USER_ID));
+}
 
 module.exports = app;
