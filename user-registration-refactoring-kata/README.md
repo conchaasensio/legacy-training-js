@@ -53,7 +53,10 @@ Other useful validations:
         expect(success).toBe(true);
     });
 
-
+## How to test it manually
+1. Run `make server` or `make docker-server`
+2. From a terminal: `curl -d '{"name":"Codium", "email":"my@email.com", "password":"myPass_123123"}' -H "Content-Type: application/json" -X POST http://localhost:3000/users -v`
+3. You should get a succesful response with a 201 status code and the user being returned.
 
 ## Authors
 Luis Rovirosa [@luisrovirosa](https://www.twitter.com/luisrovirosa)

@@ -12,7 +12,6 @@ app.get("/test", async (req, res) => {
   res.json({ message: "pass!" });
 });
 
-// curl -d '{"name":"Juanito", "email":"juanito@hotmail.com"}' -H "Content-Type: application/json" -X POST http://localhost:3000/users
 app.post("/users", async (req, res) => {
   const { name, email, password } = req.body;
   if (password.length <= 8 || !password.includes("_")) {
