@@ -1,6 +1,5 @@
 const { StatusCodes } = require("http-status-codes");
 const nodemailer = require("nodemailer");
-const User = require("./user");
 const UserOrmRepository = require("./user_orm_repository");
 const userRepository = new UserOrmRepository();
 const MAX_USER_ID = 99999;
@@ -17,7 +16,13 @@ const registerUser = async (req, res) => {
       .json("The email is already in use");
   }
 
-  const user = new User(generateUserId(), name, email, password);
+  const user = { 
+    id: generateUserId(), 
+    name: req.body.name, 
+    email: req.body.email, 
+    password: req.body.password,
+  };
+  
   userRepository.save(user);
 
   //Send a confirmation email
