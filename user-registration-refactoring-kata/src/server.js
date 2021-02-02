@@ -2,9 +2,7 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const { StatusCodes } = require('http-status-codes');
 
-const UserRepository = require('./user_orm_repository');
-
-const userRepository = new UserRepository();
+const userRepository = require('./user_orm_repository');
 
 const server = express();
 

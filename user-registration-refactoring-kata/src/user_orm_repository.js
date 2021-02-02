@@ -1,17 +1,16 @@
-class UserOrmRepository {
-  static users = new Map();
+const users = new Map();
+
+module.exports = {
 
   save(user) {
-    UserOrmRepository.users.set(user.email, user);
-  }
+    users.set(user.email, user);
+  },
 
   findByEmail(email) {
-    return UserOrmRepository.users.get(email);
-  }
+    return users.get(email);
+  },
 
-  static flush() {
-    UserOrmRepository.users = new Map();
-  }
-}
-
-module.exports = UserOrmRepository;
+  flush() {
+    users.clear();
+  },
+};

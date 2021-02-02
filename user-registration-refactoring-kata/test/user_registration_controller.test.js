@@ -1,16 +1,18 @@
 const server = require("../src/server");
 const supertest = require("supertest");
-const request = supertest(server);
-const UserOrmRepository = require("../src/user_orm_repository");
+const userOrmRepository = require("../src/user_orm_repository");
 const { StatusCodes } = require("http-status-codes");
 
 const USER_NAME = "Codium";
 const USER_EMAIL = "my@email.com";
 const VALID_PASSWORD = "myPass_123123";
 
+const request = supertest(server);
+
 describe("UserRegistrationController", () => {
+
   beforeEach(function () {
-    UserOrmRepository.flush();
+    userOrmRepository.flush();
   });
 
   it("should_success_when_everything_is_valid", async () => {
@@ -100,7 +102,7 @@ describe("UserRegistrationController", () => {
       password: VALID_PASSWORD,
     });
 
-    const user = new UserOrmRepository().findByEmail(USER_EMAIL);
+    const user = userOrmRepository.findByEmail(USER_EMAIL);
     expect(user.id).not.toBe(undefined);
     expect(user).toHaveProperty("name", USER_NAME);
     expect(user).toHaveProperty("email", USER_EMAIL);
