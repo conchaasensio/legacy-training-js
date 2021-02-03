@@ -2,7 +2,7 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const { StatusCodes } = require("http-status-codes");
 
-const userRepository = require("./user_orm_repository");
+const orm = require("./user_orm_repository");
 
 const server = express();
 
@@ -14,20 +14,20 @@ server.post("/users", async (req, res) => {
       .status(StatusCodes.BAD_REQUEST)
       .json("The password is not valid!");
   }
-  if (userRepository.findByEmail(req.body.email) !== undefined) {
+  if (orm.findByEmail(req.body.email) !== undefined) {
     return res
       .status(StatusCodes.BAD_REQUEST)
       .json("The email is already in use");
   }
 
-  const user = { 
+  const user = {
     id: Math.floor(Math.random() * 99999),
-    name: req.body.name, 
-    email: req.body.email, 
+    name: req.body.name,
+    email: req.body.email,
     password: req.body.password,
   };
-  
-  userRepository.save(user);
+
+  orm.save(user);
 
   //Send a confirmation email
   const transporter = nodemailer.createTransport({
