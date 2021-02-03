@@ -41,6 +41,14 @@ Be able to test printCurrentDate function without changing the method signature.
         assert(success);
     }
 
+## How to run the tests
+### With Docker
+Run `make docker-test`
+
+### Without Docker
+1. `make build`
+2. `make test`
+
 ## Authors
 Luis Rovirosa [@luisrovirosa](https://www.twitter.com/luisrovirosa)
 
