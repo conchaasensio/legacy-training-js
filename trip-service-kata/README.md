@@ -17,6 +17,14 @@ We want to be able to test TripService and when we have good test coverage we wi
 
 We only can change TripService class.
 
+## How to run the tests
+### With Docker
+Run `make docker-test`
+
+### Without Docker
+1. `make build`
+2. `make test`
+
 ## Original source code from:
 https://github.com/sandromancuso/trip-service-kata
 
