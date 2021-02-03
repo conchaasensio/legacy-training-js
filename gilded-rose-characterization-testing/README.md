@@ -27,8 +27,7 @@ You can to run the test with coverage in order to know if all the paths have bee
   1. run `npm i -g stryker-cli`
   2. run `make mutation`
 * Option 2: with Docker
-  1. from the root folder of this repo, run `make generate-docker-image`
-  2. run `make docker-mutation`
+  * Run `make docker-mutation`
     
 ## Inspired by:
 https://github.com/emilybache/GildedRose-Refactoring-Kata/
