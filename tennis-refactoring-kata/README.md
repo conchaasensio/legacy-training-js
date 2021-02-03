@@ -33,5 +33,13 @@ You can read more about Tennis scores [here](http://en.wikipedia.org/wiki/Tennis
 
 You need only report the score for the current game. Sets and Matches are out of scope.
 
+## How to run the tests
+### With Docker
+Run `make docker-test`
+
+### Without Docker
+1. `make build`
+2. `make test`
+
 ## Credits
 Thanks to [Emily Bache](https://github.com/emilybache) for crafting this kata.
