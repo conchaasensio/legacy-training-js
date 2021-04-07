@@ -1,6 +1,5 @@
-
-.PHONY: default run docker-build docker-run
-default: docker-run
+.PHONY: default generate-webpage docker-generate-webpage
+default: docker-generate-webpage
 
 generate-webpage:
 	npm run generate-webpage
