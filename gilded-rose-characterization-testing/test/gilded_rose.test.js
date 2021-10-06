@@ -15,4 +15,11 @@ describe("Gilded Rose", function () {
 
     expect(items[0].sellIn).toBe(9);
   });
+  it("decreases item´s quality by 1 at the end of each day", function () {
+    const gildedRose = new GildedRose([new Item("Book", 10, 20)]);
+
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].quality).toBe(19);
+  });
 });
