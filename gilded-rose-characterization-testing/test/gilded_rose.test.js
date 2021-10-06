@@ -22,4 +22,11 @@ describe("Gilded Rose", function () {
 
     expect(items[0].quality).toBe(19);
   });
+  it("decreases item´s quality by 2 when the sell by date has passed", function () {
+    const gildedRose = new GildedRose([new Item("Book", 0, 20)]);
+
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].quality).toBe(18);
+  });
 });
