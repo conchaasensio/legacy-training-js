@@ -43,4 +43,18 @@ describe("Gilded Rose", function () {
 
     expect(items[0].quality).toBe(21);
   });
+  it("will never have an item whose quality is more than 50", function () {
+    const gildedRose = new GildedRose([new Item("Aged Brie", 10, 50)]);
+
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].quality).toBe(50);
+  });
+  it("never has to sell Sulfuras", function () {
+    const gildedRose = new GildedRose([new Item("Sulfuras, Hand of Ragnaros", 10, 50)]);
+
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].sellIn).toBe(10);
+  });
 });
