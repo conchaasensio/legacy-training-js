@@ -43,6 +43,13 @@ describe("Gilded Rose", function () {
 
     expect(items[0].quality).toBe(21);
   });
+  it("increases Aged Brie´s quality by 2 when is expired", function () {
+    const gildedRose = new GildedRose([new Item("Aged Brie", 0, 20)]);
+
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].quality).toBe(22);
+  });
   it("will never have an item whose quality is more than 50", function () {
     const gildedRose = new GildedRose([new Item("Aged Brie", 10, 50)]);
 
@@ -83,5 +90,25 @@ describe("Backstage passes", function () {
 
     expect(items[0].quality).toBe(22);
     expect(items[1].quality).toBe(22);
+  });
+  it("increases quality by 3 when SellIn is between 5 and 1 days", function () {
+    const gildedRose = new GildedRose([
+        new Item("Backstage passes to a TAFKAL80ETC concert", 5, 20),
+        new Item("Backstage passes to a TAFKAL80ETC concert", 1, 20),
+    ]);
+
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].quality).toBe(23);
+    expect(items[1].quality).toBe(23);
+  });
+  it("Quality drops to 0 after the concert", function () {
+    const gildedRose = new GildedRose([
+        new Item("Backstage passes to a TAFKAL80ETC concert", 0, 20),
+    ]);
+
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].quality).toBe(0);
   });
 });
