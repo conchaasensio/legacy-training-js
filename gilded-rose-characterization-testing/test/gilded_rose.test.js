@@ -58,10 +58,19 @@ describe("Gilded Rose", function () {
     expect(items[0].sellIn).toBe(10);
   });
   it("never has to increase Sulfuras´ quality", function () {
-    const gildedRose = new GildedRose([new Item("Sulfuras, Hand of Ragnaros", 10, 50)]);
+    const gildedRose = new GildedRose([new Item("Sulfuras, Hand of Ragnaros", 10, 20)]);
 
     const items = gildedRose.updateQuality();
 
-    expect(items[0].quality).toBe(50);
+    expect(items[0].quality).toBe(20);
+  });
+});
+describe("Backstage passes", function () {
+  it("increases quality by 1 when SellIn is greater than 10", function () {
+    const gildedRose = new GildedRose([new Item("Backstage passes to a TAFKAL80ETC concert", 11, 20)]);
+
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].quality).toBe(21);
   });
 });
