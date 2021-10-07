@@ -73,4 +73,15 @@ describe("Backstage passes", function () {
 
     expect(items[0].quality).toBe(21);
   });
+  it("increases quality by 2 when SellIn is between 10 and 6 days", function () {
+    const gildedRose = new GildedRose([
+        new Item("Backstage passes to a TAFKAL80ETC concert", 10, 20),
+        new Item("Backstage passes to a TAFKAL80ETC concert", 6, 20),
+    ]);
+
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].quality).toBe(22);
+    expect(items[1].quality).toBe(22);
+  });
 });
