@@ -29,4 +29,11 @@ describe("Gilded Rose", function () {
 
     expect(items[0].quality).toBe(18);
   });
+  it("will never have an item with negative quality", function () {
+    const gildedRose = new GildedRose([new Item("Book", 10, 0)]);
+
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].quality).toBe(0);
+  });
 });
