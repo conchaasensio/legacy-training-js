@@ -1,71 +1,32 @@
-# User Registration kata
+# User Registration refactoring kata
+
+## Description
+This all about an API that registers the users of a web application. 
+
+It is designed to practice how to identify the different responsibilities in the code and decouple them.
 
 ## Goal
-Create the functionality using Unit tests and test doubles.
+There are two main objectives:
+1. Part 1: decouple the code from the Framework used.
+2. Part 2: decouple the code from Database and Libraries.
 
-## Requirements
-First iteration requirements:
-- The input of the method has an email and a password.
-- Validate that the user is persisted.
-- The userId is randomly generated.
+## Part 1: decouple the code from the Framework used.
+1. Run the tests.
+2. Do not write Business logic on the Controllers → Instead move ALL the logic to a Use Case class.
+3. Do not use the Inputs of the Framework as arguments of your Use Case class.
+4. Create your own exceptions to handle errors.
+5. Do not use the Framework response as the response of your Use Case class.
 
-Second iteration requirements:
-- Cannot exist two users with the same email.
-- Password should meet security requirements.
-  - Has more than 8 characters.
-  - Contains an underscore.
-- Sends the confirmation email when user is registered
+## Part 2: decouple the code from Database and Libraries.
+For the second part of the exercise you need to repeat this 4 steps for each coupling: 
+1. Define an Interface using Dependency Inversion Principle.
+2. Evolve your legacy code to match the Interface.
+3. Create an adapter that implements the Interface and uses the Library.
+4. Remove the coupling with the infrastructure (Database and Libraries) injecting the collaborator.
 
-## Remember
-- Write a failing test.
-- Write the minimum amount of code to make it pass.
-- Do not forget to refactor the code.
-
-## Tools
-[Jest](https://jestjs.io/docs/en/mock-functions). Mocking library. 
-
-### Example of Spy	
-
-    it('should send an email', () => {
-        const emailSender = new EmailSender();
-        jest.spyOn(emailSender, 'send').mockName('send');
-        const userRegistration = new UserRegistration(emailSender);
-
-        userRegistration.register('an@email.com', 'validPassword');
-
-        expect(emailSender.send).toHaveBeenCalled();
-    });
-
-Other useful validations:
-- `expect(callback).toHaveBeenCalled()` check called ignoring arguments
-- `expect(callback).not.toHaveBeenCalled()` check it was not called
-- `expect(callback).toHaveBeenCalledTimes(3)` check it was called 3 times
-- `expect(callback).toHaveBeenCalledWith(....)` check it was called with certain parameters
-### Example of Stub    
-    it('should success when password is valid', () => {
-        const passwordValidator = new PasswordValidator();
-        passwordValidator.isValid = jest.fn().mockReturnValue(true);
-        let userRegistration = new UserRegistration(passwordValidator);
+## Execute the tests
+Using your IDE
     
-        const success = userRegistration
-     .register('an@email.com', 'validPassword');
-    
-        expect(success).toBe(true);
-    });
-
-## How to run the tests
-### With Docker
-Run `make docker-test`
-
-### Without Docker
-1. `make build`
-2. `make test`
-
-### How to test it manually
-1. Run `make server` or `make docker-server`
-2. From a terminal: `curl -d '{"name":"Codium", "email":"my@email.com", "password":"myPass_123123"}' -H "Content-Type: application/json" -X POST http://localhost:3000/users -v`
-3. You should get a succesful response with a 201 status code and the user being returned.
-
 ## Authors
 Luis Rovirosa [@luisrovirosa](https://www.twitter.com/luisrovirosa)
 
