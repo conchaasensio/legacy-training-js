@@ -14,11 +14,12 @@ class Forecast {
         datetime2.setDate(datetime2.getDate() + 6);
         if (datetime < datetime2) {
             // Find the id of the city on metawheather
-            const woeid = (await rp(
-                'https://www.metaweather.com/api/location/search/?query=' + city, {json: true})).body[0].woeid;
+            const woeid = JSON.parse((await rp(
+                'https://www.metaweather.com/api/location/search/?query=' + city)).body)[0].woeid;
 
             // Find the predictions for the city
-            const results = (await rp('https://www.metaweather.com/api/location/' + woeid, {json: true})).body.consolidated_weather;
+            const results = JSON.parse((await rp(
+                'https://www.metaweather.com/api/location/' + woeid)).body).consolidated_weather;
             for (const result of results) {
                 // When the date is the expected
                 if (result.applicable_date == datetime.toISOString().slice(0, 10)) {
