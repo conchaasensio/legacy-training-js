@@ -6,16 +6,7 @@
     - On Linux / Mac: [check-system.sh](./check-system.sh)
     - On Windows: [check-system.cmd](./check-system.cmd)
 3. Go into the folder of the kata you want to practice. Eg: cd fizz-buzz
-4. Execute the tests. Pick one option:  
-    - Option 1: With docker and make
-
-         `make`
-    - Option 2: With docker without make
-
-        `docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js make test-watch`
-    - Option 3: Without docker:
-        - Install the dependencies: `npm install`
-        - Execute the tests: `npm run test:watch`
+4. Follow the instructions of the README of the corresponding kata.
 5. Solve the kata.
 
 ## Katas
