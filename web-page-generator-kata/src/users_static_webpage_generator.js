@@ -44,8 +44,9 @@ class UsersStaticWebpageGenerator {
     writeln('<main role="main" class="inner cover">');
     users.forEach((user) => {
       writeln(`<h1 class=\"cover-heading\">${user.getName()}</h1>`);
-      writeln(`<button type="button" class="btn btn-warning">Score <span class="badge badge-light">${user.getScoreLabel()}</span><span class="sr-only">keywords found</span></button>`)
-      writeln(`<span class="badge badge-pill badge-info">${user.getLocalizationLabel()}</span>`)
+      writeln(`<button type="button" class="btn btn-warning">Score <span class="badge badge-light">${user.getScoreLabel()}</span><span class="sr-only">keywords found</span></button>`);
+      writeln(`<span class="badge badge-pill badge-info">${user.getLocalizationLabel()}</span>`);
+      writeln(`<span class="badge badge-pill badge-danger">${user.getCommunityManagerLabel()}</span>`)
       writeln(`<p class=\"lead\">${user.getBiography()}</p>`);
     });
     writeln("</main>");

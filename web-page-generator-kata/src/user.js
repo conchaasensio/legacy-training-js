@@ -38,6 +38,15 @@ class User {
       }
     }
   }
+
+  getCommunityManagerLabel() {
+      if (this.biography.includes("community manager")) {
+        return "Community Manager"
+      }
+      else {
+        return '';
+      }
+    }
 }
 
 module.exports = User;
