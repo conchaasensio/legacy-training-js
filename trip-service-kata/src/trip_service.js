@@ -1,9 +1,14 @@
 "use strict";
 
-let UserSession = require("./user_session");
-let TripDAO = require("./trip_dao");
+const UserSession = require("./user_session");
+const TripDAO = require("./trip_dao");
+const UserNotLogInException = require('./user_not_log_in_exception');
 
 class TripService {
+  /**
+   * @throws UserNotLogInException
+   * @returns {Trip[]}
+   */
   getTripsByUser(user) {
     let tripList = [];
     let loggedUser = UserSession.getLoggedUser();
@@ -22,7 +27,7 @@ class TripService {
       }
       return tripList;
     } else {
-      throw new Error("User not logged in.");
+      throw new UserNotLogInException();
     }
   }
 }
