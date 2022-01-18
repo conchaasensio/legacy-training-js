@@ -28,6 +28,16 @@ class User {
     return this.score;
 
   }
+
+  getLocalizationLabel() {
+    const officesLocalization = ["Barcelona", "Madrid", "Granada", "Vigo", "Palma de Mallorca"];
+
+    for (let city of officesLocalization) {
+      if (this.biography.includes(city)){
+        return city;
+      }
+    }
+  }
 }
 
 module.exports = User;
