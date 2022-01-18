@@ -1,7 +1,8 @@
 class User {
-  constructor(name, biography) {
+  constructor(name, biography, score) {
     this.name = name;
     this.biography = biography;
+    this.score = score;
   }
 
   getName() {
@@ -10,6 +11,22 @@ class User {
 
   getBiography() {
     return this.biography;
+  }
+
+  getScoreLabel() {
+    const userBiography = this.biography.split(' ');
+    const keywords = ["edición", "sociedad", "mundo", "libro", "texto", "revista", "valores", "educación", "teatro", "social"];
+    this.score = 0;
+
+    for (let i=0; i<userBiography.length; i++){
+      for(let j=0; j<keywords.length; j++){
+        if (userBiography [i] === keywords [j] ){
+          this.score +=1;
+        }
+      }
+    }
+    return this.score;
+
   }
 }
 
