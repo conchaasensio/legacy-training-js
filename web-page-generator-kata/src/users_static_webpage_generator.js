@@ -88,6 +88,7 @@ function createWriteln(stream) {
 function addLabels(user, writeln) {
   writeln(getCommunityManagerLabel(user));
   writeln(getLocalizationLabel(user));
+  writeln(getScoreLabel(user));
 }
 
 function getCommunityManagerLabel(user) {
@@ -104,6 +105,24 @@ function getLocalizationLabel(user) {
       return `<span class="badge badge-pill badge-info">${city}</span>`;
     }
   }
+
+
+}
+
+function getScoreLabel(user) {
+  const userBiography = user.biography.split(' ');
+  const keywords = ["edición", "sociedad", "mundo", "libro", "texto", "revista", "valores", "educación", "teatro", "social"];
+  user.score = 0;
+
+  for (let i=0; i<userBiography.length; i++){
+    for(let j=0; j<keywords.length; j++){
+      if (userBiography [i] === keywords [j] ){
+        user.score +=1;
+      }
+    }
+  }
+  return `<button type="button" class="btn btn-warning">${user.score} <span class="badge badge-light">N</span><span class="sr-only">keywords found</span></button>`;
+
 
 
 }
