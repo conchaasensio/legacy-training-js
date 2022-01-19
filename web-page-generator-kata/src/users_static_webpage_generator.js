@@ -44,6 +44,7 @@ class UsersStaticWebpageGenerator {
     writeln('<main role="main" class="inner cover">');
     users.forEach((user) => {
       writeln(`<h1 class=\"cover-heading\">${user.getName()}</h1>`);
+      addLabels(user, writeln);
       writeln(`<p class=\"lead\">${user.getBiography()}</p>`);
     });
     writeln("</main>");
@@ -83,5 +84,17 @@ function createWriteln(stream) {
     stream.write(text + os.EOL);
   };
 }
+
+function addLabels(user, writeln) {
+  writeln(getCommunityManagerLabel(user))
+}
+
+function getCommunityManagerLabel(user) {
+  if (user.biography.includes("community manager")) {
+    return `<span class="badge badge-pill badge-danger">Community manager</span>`;
+  }
+  return '';
+}
+
 
 module.exports = UsersStaticWebpageGenerator;
