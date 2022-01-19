@@ -86,7 +86,8 @@ function createWriteln(stream) {
 }
 
 function addLabels(user, writeln) {
-  writeln(getCommunityManagerLabel(user))
+  writeln(getCommunityManagerLabel(user));
+  writeln(getLocalizationLabel(user));
 }
 
 function getCommunityManagerLabel(user) {
@@ -94,6 +95,17 @@ function getCommunityManagerLabel(user) {
     return `<span class="badge badge-pill badge-danger">Community manager</span>`;
   }
   return '';
+}
+
+function getLocalizationLabel(user) {
+  const officesLocalization = ["Barcelona", "Madrid", "Granada", "Vigo", "Palma de Mallorca"];
+  for (let city of officesLocalization) {
+    if (user.biography.includes(city)){
+      return `<span class="badge badge-pill badge-info">${city}</span>`;
+    }
+  }
+
+
 }
 
 
