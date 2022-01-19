@@ -44,9 +44,7 @@ class UsersStaticWebpageGenerator {
     writeln('<main role="main" class="inner cover">');
     users.forEach((user) => {
       writeln(`<h1 class=\"cover-heading\">${user.getName()}</h1>`);
-      writeln(`<button type="button" class="btn btn-warning">Score <span class="badge badge-light">${user.getScoreLabel()}</span><span class="sr-only">keywords found</span></button>`);
-      writeln(`<span class="badge badge-pill badge-info">${user.getLocalizationLabel()}</span>`);
-      writeln(`<span class="badge badge-pill badge-danger">${user.getCommunityManagerLabel()}</span>`)
+      addLabels(writeln, user);
       writeln(`<p class=\"lead\">${user.getBiography()}</p>`);
     });
     writeln("</main>");
@@ -85,6 +83,28 @@ function createWriteln(stream) {
   return function writeln(text) {
     stream.write(text + os.EOL);
   };
+}
+
+function getCommunityManagerLabel() {
+  if (this.biography.includes("community manager")) {
+    return "Community Manager"
+  }
+  else {
+    return '';
+  }
+}
+
+function addLabels(writeln, user) {
+  const officesLocalization = ["Barcelona", "Madrid", "Granada", "Vigo", "Palma de Mallorca"];
+  const keywords = ["edición", "sociedad", "mundo", "libro", "texto", "revista", "valores", "educación", "teatro", "social"];
+
+
+
+  writeln(`<button type="button" class="btn btn-warning">Score <span class="badge badge-light">${user.getScoreLabel(keywords)}</span><span class="sr-only">keywords found</span></button>`);
+  writeln(`<span class="badge badge-pill badge-info">${user.getLocalizationLabel(officesLocalization)}</span>`);
+  writeln(`<span class="badge badge-pill badge-danger">${user.getCommunityManagerLabel()}</span>`)
+
+
 }
 
 module.exports = UsersStaticWebpageGenerator;

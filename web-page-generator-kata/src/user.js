@@ -29,8 +29,7 @@ class User {
 
   }
 
-  getLocalizationLabel() {
-    const officesLocalization = ["Barcelona", "Madrid", "Granada", "Vigo", "Palma de Mallorca"];
+  getLocalizationLabel(officesLocalization) {
 
     for (let city of officesLocalization) {
       if (this.biography.includes(city)){
