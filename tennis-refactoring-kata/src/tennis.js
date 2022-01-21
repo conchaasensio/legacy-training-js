@@ -1,13 +1,12 @@
 "use strict";
 
 function getScore(m_score1, m_score2) {
-  let tempScore = 0;
-  if (isTie(m_score1, m_score2)) {
+    if (isTie(m_score1, m_score2)) {
       return getTieScores(m_score1);
   } else if (isAdvantageOrWin(m_score1, m_score2)) {
       return getAdvantageOrWinScores(m_score1, m_score2);
   } else {
-      return getSimpleScores(tempScore, m_score1, m_score2);
+      return getSimpleScores(m_score1, m_score2);
   }
 }
 
@@ -50,7 +49,8 @@ function getAdvantageOrWinScores(m_score1, m_score2) {
     }
 }
 
-function getSimpleScores(tempScore, m_score1, m_score2, score = "") {
+function getSimpleScores(m_score1, m_score2, score = "") {
+    let tempScore = 0;
     for (let i = 1; i < 3; i++) {
         if (i === 1) {
             tempScore = m_score1;
