@@ -5,7 +5,7 @@ function getScore(m_score1, m_score2) {
   let tempScore = 0;
   if (isTie(m_score1, m_score2)) {
       score = getTieScores(m_score1, score);
-  } else if (m_score1 >= 4 || m_score2 >= 4) {
+  } else if (isAdvantageOrWin(m_score1, m_score2)) {
       score = getAdvantageOrWinScores(m_score1, m_score2);
   } else {
       score = getSimpleScores(tempScore, m_score1, score, m_score2);
@@ -33,6 +33,10 @@ function getTieScores(m_score1, score) {
             break;
     }
     return score;
+}
+
+function isAdvantageOrWin(m_score1, m_score2) {
+    return m_score1 >= 4 || m_score2 >= 4;
 }
 
 function getAdvantageOrWinScores(m_score1, m_score2) {
