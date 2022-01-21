@@ -4,13 +4,12 @@ function getScore(m_score1, m_score2) {
   let score = "";
   let tempScore = 0;
   if (isTie(m_score1, m_score2)) {
-      score = getTieScores(m_score1, score);
+      return getTieScores(m_score1, score);
   } else if (isAdvantageOrWin(m_score1, m_score2)) {
-      score = getAdvantageOrWinScores(m_score1, m_score2);
+      return getAdvantageOrWinScores(m_score1, m_score2);
   } else {
-      score = getSimpleScores(tempScore, m_score1, score, m_score2);
+      return getSimpleScores(tempScore, m_score1, score, m_score2);
   }
-  return score;
 }
 
 function isTie(m_score1, m_score2) {
