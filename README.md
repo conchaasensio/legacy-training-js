@@ -5,7 +5,7 @@
 2. Run the script to verify that you have everything we need for the training:
     - On Linux / Mac: [check-system.sh](./check-system.sh)
     - On Windows: [check-system.cmd](./check-system.cmd)
-3. Go into the folder of the kata you want to practice. Eg: cd fizz-buzz
+3. Go into the folder of the kata you want to practice. Eg: cd web-page-generator
 4. Follow the instructions of the README of the corresponding kata.
 5. Solve the kata.
 
@@ -24,10 +24,12 @@ Kata to practice characterization testing and experience the value of mutation t
 
 ### Weather kata
 Kata to practice deoupling code and removing an external dependency in order to make the tests repeatable and fast.
+
 ### Trip Service kata
 Kata to practice several refactoring techniques in order to decouple the code and get a better test coverage.
 
 ### Trivia Golden Master kata
 Kata to practice the Golden Master technique in order to refactor some legacy code.
+
 ### Print date
 Kata to practice test doubles.
