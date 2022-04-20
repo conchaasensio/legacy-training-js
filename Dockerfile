@@ -1,12 +1,10 @@
-FROM node:15.6-alpine3.12
+FROM node:17-alpine
 
 RUN apk update && apk add make && rm -rf /var/cache/apk/*
 
 WORKDIR /tmp
-ADD ./package.json .
-ADD ./package-lock.json .
+ADD ./package*.json ./
 RUN npm install
-RUN rm package.json package-lock.json
 RUN mv ./node_modules /node_modules
 ENV PATH /node_modules/.bin:$PATH
 

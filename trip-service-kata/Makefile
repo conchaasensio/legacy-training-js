@@ -1,5 +1,5 @@
 .PHONY: default test test-watch coverage docker-test docker-test-watch docker-coverage
-default: docker-test-watch
+default: docker-test
 
 build:
 	npm install
