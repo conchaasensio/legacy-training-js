@@ -14,14 +14,18 @@ coverage:
 	npm run coverage
 	@printf "To visualize the lines open the report at coverage/lcov-report/index.html\n"
 
+
+docker-build:
+	docker build -t codiumteam/legacy-training-js:trivia-golden-master -f ../Dockerfile .
+
 docker-test:
-	docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js make test
+	docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js:trivia-golden-master make test
 
 docker-test-watch:
-	docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js make test-watch
+	docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js:trivia-golden-master make test-watch
 
 docker-coverage:
-	@docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js make coverage
+	@docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js:trivia-golden-master make coverage
 
 docker-run-game:
-	@docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js make run-game
+	@docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js:trivia-golden-master make run-game

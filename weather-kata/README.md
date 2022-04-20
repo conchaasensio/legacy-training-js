@@ -1,5 +1,5 @@
 # Weather kata
-We cannot control the weather but we can predict it.
+We cannot control the weather, but we can predict it.
 
 This kata has a code that request the weather prediction from Metaweather.
 
@@ -9,11 +9,11 @@ This kata has a code that request the weather prediction from Metaweather.
 
 ## How to run the tests
 ### With Docker
-Run `make docker-test`
+Run `make`
 
 ### Without Docker
-1. `make build`
-2. `make test`
+1. `npm install`
+2. `npm test`
 
 ## Authors
 Luis Rovirosa [@luisrovirosa](https://www.twitter.com/luisrovirosa)

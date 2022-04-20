@@ -19,11 +19,11 @@ We only can change TripService class.
 
 ## How to run the tests
 ### With Docker
-Run `make docker-test`
+Run `make`
 
 ### Without Docker
-1. `make build`
-2. `make test`
+1. `npm install`
+2. `npm test`
 
 ## Original source code from:
 https://github.com/sandromancuso/trip-service-kata

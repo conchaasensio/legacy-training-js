@@ -10,21 +10,15 @@ You don't need the business requirements.
 
 ## Goals:
 - Write a code to generate an output that you need to be sure the code behaviour does not change.
-- Write an script to automate the test execution.
+- Write a script to automate the test execution.
 
-## Run the tests
+## Run the code
+### With Docker
+Run `make`
 
-**Locally** with Python3 on Linux and Mac
-
-    make test
-
-or inside **docker** on **Linux and Mac**
-
-    make docker-test
-
-or on **Windows**
-
-    Open the Makefile and copy and paste the lines below each command.
+### Without Docker
+1. `npm install`
+2. `npm test`
     
 ## Inspired by:
 https://github.com/emilybache/GildedRose-Refactoring-Kata/

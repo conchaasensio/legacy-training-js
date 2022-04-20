@@ -18,14 +18,17 @@ mutation: test
 	npm run stryker
 	@printf "To visualize the lines open the report at reports/mutation/html/index.html\n"
 
+docker-build:
+	docker build -t codiumteam/legacy-training-js:gilded-rose-characterization -f ../Dockerfile .
+
 docker-test:
-	docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js make test
+	docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js:gilded-rose-characterization make test
 
 docker-test-watch:
-	docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js make test-watch
+	docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js:gilded-rose-characterization make test-watch
 
 docker-coverage:
-	@docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js make coverage
+	@docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js:gilded-rose-characterization make coverage
 
 docker-mutation:
-	@docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js make mutation
+	@docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js:gilded-rose-characterization make mutation
