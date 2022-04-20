@@ -63,7 +63,6 @@ function validateMake() {
 }
 
 validateDocker
-validateMake
 validateKata web-page-generator-kata "cd web-page-generator-kata" "make"
 validateKata tennis-refactoring-kata "cd tennis-refactoring-kata" "make"
 validateKata user-registration-refactoring-kata "cd user-registration-refactoring-kata" "make"
@@ -72,6 +71,7 @@ validateKata weather-kata "cd weather-kata" "make"
 validateKata trip-service-kata "cd trip-service-kata" "make"
 validateKata trivia-golden-master "cd trivia-golden-master" "make"
 validateKata print-date "cd print-date" "make"
+validateMake
 
 if [ -z "$ERROR" ]; then
   echo "Congratulations! You are ready for the training!"
