@@ -22,13 +22,13 @@ docker-build:
 	docker build -t codiumteam/legacy-training-js:gilded-rose-characterization -f ../Dockerfile .
 
 docker-test:
-	docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js:gilded-rose-characterization make test
+	docker run -it --rm -v ${PWD}:/code codiumteam/legacy-training-js:gilded-rose-characterization make test
 
 docker-test-watch:
-	docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js:gilded-rose-characterization make test-watch
+	docker run -it --rm -v ${PWD}:/code codiumteam/legacy-training-js:gilded-rose-characterization make test-watch
 
 docker-coverage:
-	@docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js:gilded-rose-characterization make coverage
+	@docker run -it --rm -v ${PWD}:/code codiumteam/legacy-training-js:gilded-rose-characterization make coverage
 
 docker-mutation:
-	@docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js:gilded-rose-characterization make mutation
+	@docker run -it --rm -v ${PWD}:/code codiumteam/legacy-training-js:gilded-rose-characterization make mutation

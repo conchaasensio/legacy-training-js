@@ -35,11 +35,11 @@ You need only report the score for the current game. Sets and Matches are out of
 
 ## How to run the tests
 ### With Docker
-Run `make docker-test`
+Run `make`
 
 ### Without Docker
-1. `make build`
-2. `make test`
+1. `npm install`
+2. `npm test`
 
 ## Credits
 Thanks to [Emily Bache](https://github.com/emilybache) for crafting this kata.

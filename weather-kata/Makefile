@@ -18,10 +18,10 @@ docker-build:
 	docker build -t codiumteam/legacy-training-js:weather-kata -f ../Dockerfile .
 
 docker-test:
-	docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js:weather-kata make test
+	docker run -it --rm -v ${PWD}:/code codiumteam/legacy-training-js:weather-kata make test
 
 docker-test-watch:
-	docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js:weather-kata make test-watch
+	docker run -it --rm -v ${PWD}:/code codiumteam/legacy-training-js:weather-kata make test-watch
 
 docker-coverage:
-	@docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js:weather-kata make coverage
+	@docker run -it --rm -v ${PWD}:/code codiumteam/legacy-training-js:weather-kata make coverage

@@ -9,4 +9,4 @@ docker-build:
 	docker build -t codiumteam/legacy-training-js:web-page-generator -f ../Dockerfile .
 
 docker-generate-webpage:
-	@docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js:web-page-generator make generate-webpage
+	@docker run -it --rm -v ${PWD}:/code codiumteam/legacy-training-js:web-page-generator make generate-webpage

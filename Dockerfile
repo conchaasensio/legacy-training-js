@@ -2,7 +2,7 @@ FROM node:17-alpine
 
 RUN apk update && apk add make && rm -rf /var/cache/apk/*
 
-WORKDIR /kata
+WORKDIR /code
 
 ADD ./package*.json ./
 RUN npm install
@@ -10,5 +10,5 @@ RUN npm install
 USER node
 RUN npm config set update-notifier false
 
-VOLUME ["/kata", "/kata/node_modules"]
+VOLUME ["/code", "/code/node_modules"]
 

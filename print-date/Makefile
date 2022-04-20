@@ -18,10 +18,10 @@ docker-build:
 	docker build -t codiumteam/legacy-training-js:print-date -f ../Dockerfile .
 
 docker-test:
-	docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js:print-date make test
+	docker run -it --rm -v ${PWD}:/code codiumteam/legacy-training-js:print-date make test
 
 docker-test-watch:
-	docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js:print-date make test-watch
+	docker run -it --rm -v ${PWD}:/code codiumteam/legacy-training-js:print-date make test-watch
 
 docker-coverage:
-	@docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js:print-date make coverage
+	@docker run -it --rm -v ${PWD}:/code codiumteam/legacy-training-js:print-date make coverage

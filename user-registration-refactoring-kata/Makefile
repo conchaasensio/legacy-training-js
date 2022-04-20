@@ -21,13 +21,13 @@ docker-build:
 	docker build -t codiumteam/legacy-training-js:user-registration -f ../Dockerfile .
 
 docker-test:
-	docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js:user-registration make test
+	docker run -it --rm -v ${PWD}:/code codiumteam/legacy-training-js:user-registration make test
 
 docker-test-watch:
-	docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js:user-registration make test-watch
+	docker run -it --rm -v ${PWD}:/code codiumteam/legacy-training-js:user-registration make test-watch
 
 docker-coverage:
-	@docker run -it --rm -v ${PWD}:/kata codiumteam/legacy-training-js:user-registration make coverage
+	@docker run -it --rm -v ${PWD}:/code codiumteam/legacy-training-js:user-registration make coverage
 
 docker-server:
-	@docker run -it --rm -p 3000:3000 -v ${PWD}:/kata codiumteam/legacy-training-js:user-registration make server
+	@docker run -it --rm -p 3000:3000 -v ${PWD}:/code codiumteam/legacy-training-js:user-registration make server
