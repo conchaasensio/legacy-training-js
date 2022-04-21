@@ -8,7 +8,10 @@ const server = express();
 
 server.use(express.json());
 
-server.post("/users", async (req, res) => {
+const post = (path, callback) =>
+  server.post(path, (req, res, next) => callback(req, res).catch(next))
+
+post("/users", async (req, res) => {
   if (req.body.password.length <= 8 || !req.body.password.includes("_")) {
     return res
       .status(StatusCodes.BAD_REQUEST)
@@ -50,5 +53,11 @@ server.post("/users", async (req, res) => {
 
   return res.status(StatusCodes.CREATED).json({ user });
 });
+
+server.use((error, request, response) => {
+  return response
+  .status(StatusCodes.INTERNAL_SERVER_ERROR)
+  .json(err.message);
+})
 
 module.exports = server;
