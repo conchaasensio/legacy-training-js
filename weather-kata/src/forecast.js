@@ -1,5 +1,5 @@
-const request = require('request');
-const {promisify} = require('util');
+import request from 'request';
+import { promisify } from 'util';
 const rp = promisify(request);
 
 class Forecast {
@@ -37,4 +37,4 @@ class Forecast {
     }
 }
 
-module.exports = Forecast;
+export default Forecast;
