@@ -4,4 +4,4 @@ class Printer {
   }
 }
 
-module.exports = Printer;
+export default Printer;

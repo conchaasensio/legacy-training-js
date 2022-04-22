@@ -14,7 +14,17 @@
   },
   "author": "Codium",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.17.9",
     "jest": "^26.6.3",
     "sinon": "^9.2.4"
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "plugins": [
+          "@babel/plugin-transform-modules-commonjs"
+        ]
+      }
+    }
   }
 }

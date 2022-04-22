@@ -10,4 +10,4 @@ class PrintDate {
   }
 }
 
-module.exports = PrintDate;
+export default PrintDate;
