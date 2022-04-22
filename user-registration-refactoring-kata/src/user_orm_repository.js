@@ -1,10 +1,9 @@
-
-module.exports = {
+const orm = {
   users: new Map(),
   save(user) {
     this.users.set(user.email, user);
   },
-  
+
   findByEmail(email) {
     return this.users.get(email);
   },
@@ -13,3 +12,5 @@ module.exports = {
     this.users.clear();
   },
 };
+
+export default orm;

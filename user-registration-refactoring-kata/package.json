@@ -15,6 +15,7 @@
   },
   "author": "Codium",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.17.9",
     "jest": "^27.5.1",
     "supertest": "^6.2.2"
   },
@@ -25,5 +26,12 @@
   },
   "jest": {
     "testTimeout": 1000
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "plugins": ["@babel/plugin-transform-modules-commonjs"]
+      }
+    }
   }
 }

@@ -1,26 +1,26 @@
-const express = require("express");
-const nodemailer = require("nodemailer");
-const { StatusCodes } = require("http-status-codes");
+import express from 'express';
+import nodemailer from 'nodemailer';
+import { StatusCodes } from 'http-status-codes';
 
-const orm = require("./user_orm_repository");
+import orm from './user_orm_repository';
 
 const server = express();
 
 server.use(express.json());
 
 const post = (path, callback) =>
-  server.post(path, (req, res, next) => callback(req, res).catch(next))
+  server.post(path, (req, res, next) => callback(req, res).catch(next));
 
-post("/users", async (req, res) => {
-  if (req.body.password.length <= 8 || !req.body.password.includes("_")) {
+post('/users', async (req, res) => {
+  if (req.body.password.length <= 8 || !req.body.password.includes('_')) {
     return res
       .status(StatusCodes.BAD_REQUEST)
-      .json("The password is not valid!");
+      .json('The password is not valid!');
   }
   if (orm.findByEmail(req.body.email) !== undefined) {
     return res
       .status(StatusCodes.BAD_REQUEST)
-      .json("The email is already in use");
+      .json('The email is already in use');
   }
 
   const user = {
@@ -34,11 +34,11 @@ post("/users", async (req, res) => {
 
   //Send a confirmation email
   const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.email",
+    host: 'smtp.gmail.email',
     port: 465,
     auth: {
-      user: "[USERNAME]",
-      pass: "[PASSWORD]",
+      user: '[USERNAME]',
+      pass: '[PASSWORD]',
     },
   });
   // If a proper SMTP server is configured, this line could be uncommented
@@ -55,9 +55,7 @@ post("/users", async (req, res) => {
 });
 
 server.use((error, request, response) => {
-  return response
-  .status(StatusCodes.INTERNAL_SERVER_ERROR)
-  .json(err.message);
-})
+  return response.status(StatusCodes.INTERNAL_SERVER_ERROR).json(err.message);
+});
 
-module.exports = server;
+export default server;
