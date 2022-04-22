@@ -1,7 +1,8 @@
-"use strict";
+'use strict';
+class Trip {
+  constructor(props) {
+    this.id = Math.random();
+  }
+}
 
-module.exports = class Trip {
-    constructor(props) {
-        this.id = Math.random();
-    }
-};
+export default Trip;

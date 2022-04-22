@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-const User = require('./user');
+import User from './user';
 
 class UserSession {
   /**
@@ -8,9 +8,9 @@ class UserSession {
    */
   getLoggedUser() {
     throw new Error(
-      "UserSession.getLoggedUser() should not be called in an unit test"
+      'UserSession.getLoggedUser() should not be called in an unit test'
     );
   }
 }
 
-module.exports = new UserSession();
+export default new UserSession();

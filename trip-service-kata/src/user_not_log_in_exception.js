@@ -1,3 +1,5 @@
-"use strict";
+'use strict';
 
-module.exports = class UserNotLogInException extends Error {};
+class UserNotLogInException extends Error {}
+
+export default UserNotLogInException;

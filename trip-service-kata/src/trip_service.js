@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
-const UserSession = require("./user_session");
-const TripDAO = require("./trip_dao");
+const UserSession = require('./user_session').default;
+const TripDAO = require('./trip_dao');
 const UserNotLogInException = require('./user_not_log_in_exception');
 
 class TripService {
@@ -32,4 +32,4 @@ class TripService {
   }
 }
 
-module.exports = TripService;
+export default TripService;
