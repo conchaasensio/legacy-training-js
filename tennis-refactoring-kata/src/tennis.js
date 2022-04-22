@@ -1,59 +1,60 @@
-"use strict";
+'use strict';
 
 function getScore(m_score1, m_score2) {
-  var score = "";
-  var tempScore = 0;
+  let score = '';
+  let tempScore = 0;
   if (m_score1 === m_score2) {
     switch (m_score1) {
       case 0:
-        score = "Love-All";
+        score = 'Love-All';
         break;
       case 1:
-        score = "Fifteen-All";
+        score = 'Fifteen-All';
         break;
       case 2:
-        score = "Thirty-All";
+        score = 'Thirty-All';
         break;
       default:
-        score = "Deuce";
+        score = 'Deuce';
         break;
     }
   } else if (m_score1 >= 4 || m_score2 >= 4) {
-    var minusResult = m_score1 - m_score2;
+    let minusResult = m_score1 - m_score2;
     if (minusResult === 1) {
-      score = "Advantage player1";
+      score = 'Advantage player1';
     } else if (minusResult === -1) {
-      score = "Advantage player2";
+      score = 'Advantage player2';
     } else if (minusResult >= 2) {
-      score = "Win for player1";
+      score = 'Win for player1';
     } else {
-      score = "Win for player2";
+      score = 'Win for player2';
     }
   } else {
-    for (var i = 1; i < 3; i++) {
+    for (let i = 1; i < 3; i++) {
       if (i === 1) {
         tempScore = m_score1;
       } else {
-        score += "-";
+        score += '-';
         tempScore = m_score2;
       }
       switch (tempScore) {
         case 0:
-          score += "Love";
+          score += 'Love';
           break;
         case 1:
-          score += "Fifteen";
+          score += 'Fifteen';
           break;
         case 2:
-          score += "Thirty";
+          score += 'Thirty';
           break;
         case 3:
-          score += "Forty";
+          score += 'Forty';
           break;
       }
     }
   }
+
   return score;
 }
 
-module.exports = getScore;
+export default getScore;
