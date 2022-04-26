@@ -1,5 +1,5 @@
 KATA_DIRECTORIES := $(wildcard */)
-.PHONY: docker-build docker-build-$(KATA_DIRECTORIES) docker-push
+.PHONY: docker-build docker-build-$(KATA_DIRECTORIES) docker-push docker-remove-images
 docker-build: docker-build-$(KATA_DIRECTORIES)
 
 docker-build-$(KATA_DIRECTORIES):
