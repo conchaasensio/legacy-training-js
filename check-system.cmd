@@ -1,6 +1,6 @@
 @echo off
 
-@REM CALL :validateDocker
+CALL :validateDocker
 CALL :validateKata web-page-generator-kata web-page-generator "make generate-webpage"
 CALL :validateKata tennis-refactoring-kata tennis-refactoring "make test"
 CALL :validateKata user-registration-refactoring-kata user-registration "make test"
