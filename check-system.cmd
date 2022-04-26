@@ -1,21 +1,21 @@
 @echo off
 
-CALL :validateDocker
-CALL :validateKata web-page-generator-kata "docker run --rm -it -v %CD%:/kata codiumteam/legacy-training-js make generate-webpage"
-CALL :validateKata tennis-refactoring-kata "docker run --rm -it -v %CD%:/kata codiumteam/legacy-training-js make test"
-CALL :validateKata user-registration-refactoring-kata "docker run --rm -it -v %CD%:/kata codiumteam/legacy-training-js make test"
-CALL :validateKata gilded-rose-characterization-testing "docker run --rm -it -v %CD%:/kata codiumteam/legacy-training-js make test"
-CALL :validateKata weather-kata "docker run --rm -it -v %CD%:/kata codiumteam/legacy-training-js make test"
-CALL :validateKata trip-service-kata "docker run --rm -it -v %CD%:/kata codiumteam/legacy-training-js make test"
-CALL :validateKata trivia-golden-master "docker run --rm -it -v %CD%:/kata codiumteam/legacy-training-js make test"
-CALL :validateKata print-date "docker run --rm -it -v %CD%:/kata codiumteam/legacy-training-js make test"
+@REM CALL :validateDocker
+CALL :validateKata web-page-generator-kata web-page-generator "make generate-webpage"
+CALL :validateKata tennis-refactoring-kata tennis-refactoring "make test"
+CALL :validateKata user-registration-refactoring-kata user-registration "make test"
+CALL :validateKata gilded-rose-characterization-testing gilded-rose-characterization "make test"
+CALL :validateKata weather-kata weather-kata "make test"
+CALL :validateKata trip-service-kata trip-service "make test"
+CALL :validateKata trivia-golden-master trivia-golden-master "make test"
+CALL :validateKata print-date print-date "make test"
 
 goto :eof
 
 :validateKata
     echo Validating %1...
     pushd %1
-    CALL %~2
+    docker run --rm -v %CD%:/code codiumteam/legacy-training-js:%2 %~3
     popd
 goto :eof
 
@@ -31,7 +31,7 @@ goto :eof
     )
 
     echo Downloading docker image...
-    docker pull codiumteam/legacy-training-js >NUL: 2>NUL:
+    docker pull codiumteam/legacy-training-js:web-page-generator >NUL: 2>NUL:
     IF ERRORLEVEL 1 (
       echo Error
       echo There is a problem downloading the docker image
@@ -41,7 +41,7 @@ goto :eof
     )
 
     echo Validating docker mount permissions...
-    docker run --rm -v "%CD%":/kata -w /kata codiumteam/legacy-training-js ls >NUL: 2>NUL:
+    docker run --rm -v "%CD%":/code codiumteam/legacy-training-js:web-page-generator ls >NUL: 2>NUL:
     IF ERRORLEVEL 1 (
       echo Error
       echo Are you sure that you have permissions to mount your volumes?
