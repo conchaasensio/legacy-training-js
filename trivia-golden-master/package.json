@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Kata to practice xxxx",
   "main": " ",
+  "type": "module",
   "directories": {
     "lib": "src",
     "test": "test"
