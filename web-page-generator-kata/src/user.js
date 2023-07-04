@@ -28,6 +28,22 @@ class User {
     }
     return this.score;
   }
+
+  getLocalization() {
+    const userBiography = this.biography.split(' ');
+    const localizations = ['Barcelona', 'Madrid', 'Granada', 'Vigo', 'Palma de Mallorca'];
+
+    this.localization = '';
+
+    for (const userBiographyElement of userBiography) {
+      for (const localization of localizations) {
+        if (userBiographyElement.includes(localization)) {
+          this.localization = localization;
+        }
+      }
+    }
+    return this.localization;
+  }
 }
 
 module.exports = User;
