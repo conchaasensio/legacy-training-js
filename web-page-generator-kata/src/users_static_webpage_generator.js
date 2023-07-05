@@ -79,9 +79,6 @@ class UsersStaticWebpageGenerator {
 }
 
 function addLabels(writeln, user) {
-  const localizations = ['Barcelona', 'Madrid', 'Granada', 'Vigo', 'Palma de Mallorca'];
-  const keywords = ['edición', 'sociedad', 'mundo', 'libro', 'texto', 'revista', 'valores', 'educación', 'teatro', 'social'];
-
   writeln(`<button type="button" class="btn btn-warning">Score <span class="badge badge-light">${user.getScore()}</span><span class="sr-only">keywords found</span></button>`);
   writeln(`<span class="badge badge-pill badge-info">${user.getLocalization()}</span>`);
   writeln(`<span class="badge badge-pill badge-danger">${user.getCommunityManagerLabel()}</span>`);
