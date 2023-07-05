@@ -44,7 +44,7 @@ class UsersStaticWebpageGenerator {
     writeln('<main role="main" class="inner cover">');
     users.forEach((user) => {
       writeln(`<h1 class=\"cover-heading\">${user.getName()}</h1>`);
-      addLabels(writeln, user);
+      writeln(generateLabels(user));
       writeln(`<p class=\"lead\">${user.getBiography()}</p>`);
     });
     writeln("</main>");
@@ -78,10 +78,11 @@ class UsersStaticWebpageGenerator {
   }
 }
 
-function addLabels(writeln, user) {
-  writeln(`<button type="button" class="btn btn-warning">Score <span class="badge badge-light">${user.getScore()}</span><span class="sr-only">keywords found</span></button>`);
-  writeln(`<span class="badge badge-pill badge-info">${user.getLocalization()}</span>`);
-  writeln(`<span class="badge badge-pill badge-danger">${user.getCommunityManagerLabel()}</span>`);
+function generateLabels(user) {
+  let scoreLabel = `<button type="button" class="btn btn-warning">Score <span class="badge badge-light">${user.getScore()}</span><span class="sr-only">keywords found</span></button>`;
+  let localizationLabel = `<span class="badge badge-pill badge-info">${user.getLocalization()}</span>`;
+  let communityManagerLabel = `<span class="badge badge-pill badge-danger">${user.getCommunityManagerLabel()}</span>`;
+  return scoreLabel + localizationLabel + communityManagerLabel;
 }
 
 function createWriteln(stream) {

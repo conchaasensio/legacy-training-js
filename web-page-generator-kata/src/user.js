@@ -1,8 +1,7 @@
 class User {
-  constructor(name, biography, score) {
+  constructor(name, biography) {
     this.name = name;
     this.biography = biography;
-    this.score = score;
   }
 
   getName() {
@@ -14,44 +13,36 @@ class User {
   }
 
   getScore() {
-    const userBiography = this.biography.split(' ');
-    const keywords = ['edición', 'sociedad', 'mundo', 'libro', 'revista', 'valores', 'educación', 'teatro', 'social'];
+    const userBiography = this.biography.toLowerCase();
+    const keywords = ['edición', 'sociedad', 'mundo', 'libro', 'texto', 'revista', 'valores', 'educación', 'teatro', 'social'];
 
-    this.score = 0;
-
-    for (const userBiographyElement of userBiography) {
-      for (const keyword of keywords) {
-        if (userBiographyElement === keyword) {
-          this.score +=1;
+    let score = 0;
+    for (const keyword of keywords) {
+        if (userBiography.includes(keyword)) {
+          score +=1;
         }
-      }
     }
-    return this.score;
+    return score;
   }
 
   getLocalization() {
     const userBiography = this.biography.split(' ');
     const localizations = ['Barcelona', 'Madrid', 'Granada', 'Vigo', 'Palma de Mallorca'];
 
-    this.localization = '';
-
     for (const userBiographyElement of userBiography) {
       for (const localization of localizations) {
         if (userBiographyElement.includes(localization)) {
-          this.localization = localization;
+          return localization;
         }
       }
     }
-    return this.localization;
+    return "";
   }
 
   getCommunityManagerLabel() {
-    if (this.biography.includes('community manager')) {
-      return 'Community Manager'
-    }
-    else {
-      return '';
-    }
+    return this.biography.includes('community manager')
+        ? 'Community Manager'
+        : '';
   }
 
 }
