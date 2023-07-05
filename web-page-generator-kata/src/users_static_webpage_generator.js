@@ -44,13 +44,10 @@ class UsersStaticWebpageGenerator {
     writeln('<main role="main" class="inner cover">');
     users.forEach((user) => {
       writeln(`<h1 class=\"cover-heading\">${user.getName()}</h1>`);
-      writeln(`<button type="button" class="btn btn-warning">Score <span class="badge badge-light">${user.getScore()}</span><span class="sr-only">keywords found</span></button>`);
-      writeln(`<span class="badge badge-pill badge-info">${user.getLocalization()}</span>`);
-      writeln(`<span class="badge badge-pill badge-danger">${user.getCommunityManagerLabel()}</span>`);
+      addLabels(writeln, user);
       writeln(`<p class=\"lead\">${user.getBiography()}</p>`);
     });
     writeln("</main>");
-
     writeln('<footer class="mastfoot mt-auto">');
     writeln('<div class="inner">');
     writeln(
@@ -79,6 +76,15 @@ class UsersStaticWebpageGenerator {
 
     stream.end();
   }
+}
+
+function addLabels(writeln, user) {
+  const localizations = ['Barcelona', 'Madrid', 'Granada', 'Vigo', 'Palma de Mallorca'];
+  const keywords = ['edición', 'sociedad', 'mundo', 'libro', 'texto', 'revista', 'valores', 'educación', 'teatro', 'social'];
+
+  writeln(`<button type="button" class="btn btn-warning">Score <span class="badge badge-light">${user.getScore()}</span><span class="sr-only">keywords found</span></button>`);
+  writeln(`<span class="badge badge-pill badge-info">${user.getLocalization()}</span>`);
+  writeln(`<span class="badge badge-pill badge-danger">${user.getCommunityManagerLabel()}</span>`);
 }
 
 function createWriteln(stream) {

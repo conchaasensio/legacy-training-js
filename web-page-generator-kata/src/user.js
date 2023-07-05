@@ -53,6 +53,7 @@ class User {
       return '';
     }
   }
+
 }
 
 module.exports = User;
