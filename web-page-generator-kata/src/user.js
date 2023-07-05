@@ -44,6 +44,15 @@ class User {
     }
     return this.localization;
   }
+
+  getCommunityManagerLabel() {
+    if (this.biography.includes('community manager')) {
+      return 'Community Manager'
+    }
+    else {
+      return '';
+    }
+  }
 }
 
 module.exports = User;
