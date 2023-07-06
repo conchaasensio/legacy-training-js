@@ -14,7 +14,8 @@ function getScore(m_score1, m_score2) {
 function isTie(m_score1, m_score2) {
   return m_score1 === m_score2;
 }
-function getTieScores(m_score1, score = "") {
+function getTieScores(m_score1) {
+  let score;
   switch (m_score1) {
     case 0:
       score = 'Love-All';
@@ -49,7 +50,8 @@ function getAdvantageOrWinScores(m_score1, m_score2) {
   }
 }
 
-function getRegularScores(tempScore, m_score1, m_score2, score="") {
+function getRegularScores(tempScore, m_score1, m_score2) {
+  let score = "";
   for (let i = 1; i < 3; i++) {
     if (i === 1) {
       tempScore = m_score1;
