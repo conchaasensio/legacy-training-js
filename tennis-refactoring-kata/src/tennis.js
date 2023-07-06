@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 function getScore(m_score1, m_score2) {
   if (isTie(m_score1, m_score2)) {
@@ -13,17 +13,11 @@ function getScore(m_score1, m_score2) {
 function isTie(m_score1, m_score2) {
   return m_score1 === m_score2;
 }
+
 function getTieScores(m_score1) {
-    switch (m_score1) {
-    case 0:
-      return 'Love-All';
-    case 1:
-      return 'Fifteen-All';
-    case 2:
-      return 'Thirty-All';
-    default:
-      return 'Deuce';
-  }
+  let tieScores = ['Love-All', 'Fifteen-All', 'Thirty-All'];
+
+  return tieScores[m_score1] || 'Deuce';
 }
 
 function isAdvantageOrWin(m_score1, m_score2) {
@@ -44,7 +38,7 @@ function getAdvantageOrWinScores(m_score1, m_score2) {
 }
 
 function getRegularScores(m_score1, m_score2) {
-  let score = "";
+  let score = '';
   let tempScore = 0;
   for (let i = 1; i < 3; i++) {
     if (i === 1) {
