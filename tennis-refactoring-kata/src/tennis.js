@@ -14,22 +14,16 @@ function isTie(m_score1, m_score2) {
   return m_score1 === m_score2;
 }
 function getTieScores(m_score1) {
-  let score;
-  switch (m_score1) {
+    switch (m_score1) {
     case 0:
-      score = 'Love-All';
-      break;
+      return 'Love-All';
     case 1:
-      score = 'Fifteen-All';
-      break;
+      return 'Fifteen-All';
     case 2:
-      score = 'Thirty-All';
-      break;
+      return 'Thirty-All';
     default:
-      score = 'Deuce';
-      break;
+      return 'Deuce';
   }
-  return score;
 }
 
 function isAdvantageOrWin(m_score1, m_score2) {
