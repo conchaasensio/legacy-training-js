@@ -1,8 +1,8 @@
 "use strict";
 
 function getScore(m_score1, m_score2) {
-  var score = "";
-  var tempScore = 0;
+  let score = '';
+  let tempScore = 0;
   if (m_score1 === m_score2) {
     switch (m_score1) {
       case 0:
@@ -19,7 +19,7 @@ function getScore(m_score1, m_score2) {
         break;
     }
   } else if (m_score1 >= 4 || m_score2 >= 4) {
-    var minusResult = m_score1 - m_score2;
+    const minusResult = m_score1 - m_score2;
     if (minusResult === 1) {
       score = "Advantage player1";
     } else if (minusResult === -1) {
@@ -30,7 +30,7 @@ function getScore(m_score1, m_score2) {
       score = "Win for player2";
     }
   } else {
-    for (var i = 1; i < 3; i++) {
+    for (let i = 1; i < 3; i++) {
       if (i === 1) {
         tempScore = m_score1;
       } else {
