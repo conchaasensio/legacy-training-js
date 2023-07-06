@@ -4,20 +4,7 @@ function getScore(m_score1, m_score2) {
   let score = '';
   let tempScore = 0;
   if (m_score1 === m_score2) {
-    switch (m_score1) {
-      case 0:
-        score = "Love-All";
-        break;
-      case 1:
-        score = "Fifteen-All";
-        break;
-      case 2:
-        score = "Thirty-All";
-        break;
-      default:
-        score = "Deuce";
-        break;
-    }
+    score = getTieScores(m_score1, score);
   } else if (m_score1 >= 4 || m_score2 >= 4) {
     const minusResult = m_score1 - m_score2;
     if (minusResult === 1) {
@@ -52,6 +39,24 @@ function getScore(m_score1, m_score2) {
           break;
       }
     }
+  }
+  return score;
+}
+
+function getTieScores(m_score1, score) {
+  switch (m_score1) {
+    case 0:
+      score = 'Love-All';
+      break;
+    case 1:
+      score = 'Fifteen-All';
+      break;
+    case 2:
+      score = 'Thirty-All';
+      break;
+    default:
+      score = 'Deuce';
+      break;
   }
   return score;
 }
