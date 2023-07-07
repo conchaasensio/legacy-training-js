@@ -38,19 +38,8 @@ function getAdvantageOrWinScores(m_score1, m_score2) {
 }
 
 function getRegularScores(m_score1, m_score2) {
-  let score = '';
-  let tempScore = 0;
   let regularScores = ['Love', 'Fifteen', 'Thirty', 'Forty'];
-  for (let i = 1; i < 3; i++) {
-    if (i === 1) {
-      tempScore = m_score1;
-    } else {
-      score += '-';
-      tempScore = m_score2;
-    }
-    score += regularScores[tempScore];
-  }
-  return score;
+  return regularScores[m_score1] + '-' + regularScores[m_score2];
 }
 
 module.exports = getScore;
