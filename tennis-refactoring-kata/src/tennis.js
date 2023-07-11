@@ -42,8 +42,7 @@ function isWin(m_score1, m_score2) {
 
 function getWinScores(m_score1, m_score2) {
   const minusResult = m_score1 - m_score2;
-  if (minusResult === 1) {
-  } else if (minusResult >= 2) {
+  if (minusResult >= 2) {
     return 'Win for player1';
   } else {
     return 'Win for player2';
