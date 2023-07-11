@@ -28,12 +28,11 @@ function isAdvantage(m_score1, m_score2) {
 }
 
 function getAdvantageScores(m_score1, m_score2) {
-  const minusResult = m_score1 - m_score2;
-  if (minusResult === 1) {
-    return 'Advantage player1';
-  } else if (minusResult === -1) {
-    return 'Advantage player2';
-  }
+  return 'Advantage ' + winningPlayer(m_score1, m_score2);
+}
+
+function winningPlayer(m_score1, m_score2) {
+  return m_score1 > m_score2 ? 'player1' : 'player2';
 }
 
 function isWin(m_score1, m_score2) {
@@ -41,12 +40,7 @@ function isWin(m_score1, m_score2) {
 }
 
 function getWinScores(m_score1, m_score2) {
-  const minusResult = m_score1 - m_score2;
-  if (minusResult >= 2) {
-    return 'Win for player1';
-  } else {
-    return 'Win for player2';
-  }
+  return 'Win for ' + winningPlayer(m_score1, m_score2);
 }
 
 function getRegularScores(m_score1, m_score2) {
