@@ -3,7 +3,11 @@ import nodemailer from 'nodemailer';
 import { StatusCodes } from 'http-status-codes';
 
 import orm from './user_orm_repository';
-import Register_user from './register_user';
+import RegisterUser from './register_user';
+import {PasswordIsNotValidException} from './Password_is_not_valid_exception';
+import {
+  EmailIsAlreadyInUseException
+} from './email_is_already_in_use_exception';
 
 const server = express();
 
@@ -13,8 +17,24 @@ const post = (path, callback) =>
   server.post(path, (req, res, next) => callback(req, res).catch(next));
 
 post('/users', async (req, res) => {
-  return new Register_user().execute(res, req.body.password, req.body.email,
-      req.body.name);
+  let useCase = new RegisterUser();
+  try {
+    let password = req.body.password;
+    let email = req.body.email;
+    let response = useCase.execute(res, password, email, req.body.name);
+    return response;
+  } catch (exception) {
+    if (exception instanceof PasswordIsNotValidException) {
+      return res.status(StatusCodes.BAD_REQUEST).
+          json('The password is not valid!');
+    } else if (exception instanceof EmailIsAlreadyInUseException) {
+      return res.status(StatusCodes.BAD_REQUEST).
+          json('The email is already in use');
+
+    }
+
+  }
+
 });
 
 server.use((error, request, response) => {
