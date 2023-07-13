@@ -13,7 +13,8 @@ const post = (path, callback) =>
   server.post(path, (req, res, next) => callback(req, res).catch(next));
 
 post('/users', async (req, res) => {
-  return new Register_user().execute(req, res);
+  return new Register_user().execute(res, req.body.password, req.body.email,
+      req.body.name);
 });
 
 server.use((error, request, response) => {

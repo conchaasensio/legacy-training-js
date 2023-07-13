@@ -3,21 +3,21 @@ import orm from './user_orm_repository';
 import nodemailer from 'nodemailer';
 
 export default class Register_user {
-  execute(req, res) {
-    if (req.body.password.length <= 8 || !req.body.password.includes('_')) {
+  execute(res, password, email, name) {
+    if (password.length <= 8 || !password.includes('_')) {
       return res.status(StatusCodes.BAD_REQUEST).
           json('The password is not valid!');
     }
-    if (orm.findByEmail(req.body.email) !== undefined) {
+    if (orm.findByEmail(email) !== undefined) {
       return res.status(StatusCodes.BAD_REQUEST).
           json('The email is already in use');
     }
 
     const user = {
       id: Math.floor(Math.random() * 99999),
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password,
+      name: name,
+      email: email,
+      password: password,
     };
 
     orm.save(user);
