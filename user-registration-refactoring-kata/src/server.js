@@ -21,8 +21,8 @@ post('/users', async (req, res) => {
   try {
     let password = req.body.password;
     let email = req.body.email;
-    let response = useCase.execute(res, password, email, req.body.name);
-    return response;
+    let user = useCase.execute(password, email, req.body.name);
+    return res.status(StatusCodes.CREATED).json({user});
   } catch (exception) {
     if (exception instanceof PasswordIsNotValidException) {
       return res.status(StatusCodes.BAD_REQUEST).
