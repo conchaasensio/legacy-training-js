@@ -1,5 +1,4 @@
 import express from 'express';
-import nodemailer from 'nodemailer';
 import { StatusCodes } from 'http-status-codes';
 
 import orm from './user_orm_repository';
@@ -8,6 +7,7 @@ import {PasswordIsNotValidException} from './Password_is_not_valid_exception';
 import {
   EmailIsAlreadyInUseException
 } from './email_is_already_in_use_exception';
+import {Nodemailer_email_sender} from './nodemailer_email_sender';
 
 const server = express();
 
@@ -17,7 +17,7 @@ const post = (path, callback) =>
   server.post(path, (req, res, next) => callback(req, res).catch(next));
 
 post('/users', async (req, res) => {
-  let useCase = new RegisterUser();
+  let useCase = new RegisterUser(new Nodemailer_email_sender());
   try {
     let password = req.body.password;
     let email = req.body.email;
