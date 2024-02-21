@@ -1,13 +1,12 @@
 'use strict';
 
 function getScore(pointsPlayer1, pointsPlayer2) {
-  let tempScore = 0;
   if (isTie(pointsPlayer1, pointsPlayer2)) {
     return getTieScores(pointsPlayer1);
   } else if (isAdvantageOrWin(pointsPlayer1, pointsPlayer2)) {
     return getAdvantageOrWinScores(pointsPlayer1, pointsPlayer2);
   } else {
-    return getRegularScores(tempScore, pointsPlayer1, pointsPlayer2);
+    return getRegularScores(pointsPlayer1, pointsPlayer2);
   }
 }
 
@@ -50,7 +49,8 @@ function getAdvantageOrWinScores(pointsPlayer1, pointsPlayer2) {
   }
 }
 
-function getRegularScores(tempScore, pointsPlayer1, pointsPlayer2, score = '') {
+function getRegularScores(
+    pointsPlayer1, pointsPlayer2, tempScore = '', score = '') {
   for (let i = 1; i < 3; i++) {
     if (i === 1) {
       tempScore = pointsPlayer1;
