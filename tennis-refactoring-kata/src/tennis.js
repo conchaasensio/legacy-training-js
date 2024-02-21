@@ -1,11 +1,15 @@
 'use strict';
 
+function isWin(pointsPlayer1, pointsPlayer2) {
+  return pointsPlayer1 >= 4 || pointsPlayer2 >= 4;
+}
+
 function getScore(pointsPlayer1, pointsPlayer2) {
   if (isTie(pointsPlayer1, pointsPlayer2)) {
     return getTieScores(pointsPlayer1);
   } else if (isAdvantage(pointsPlayer1, pointsPlayer2)) {
     return getAdvantageScores(pointsPlayer1, pointsPlayer2);
-  } else if (pointsPlayer1 >= 4 || pointsPlayer2 >= 4) {
+  } else if (isWin(pointsPlayer1, pointsPlayer2)) {
     let minusResult = pointsPlayer1 - pointsPlayer2;
     if (minusResult >= 2) {
       return 'Win for player1';
