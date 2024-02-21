@@ -1,24 +1,21 @@
 'use strict';
 
 function getScore(pointsPlayer1, pointsPlayer2) {
-  let score = '';
   let tempScore = 0;
   if (isTie(pointsPlayer1, pointsPlayer2)) {
-    score = getTieScores(pointsPlayer1, score);
+    return getTieScores(pointsPlayer1);
   } else if (isAdvantageOrWin(pointsPlayer1, pointsPlayer2)) {
-    score = getAdvantageOrWinScores(pointsPlayer1, pointsPlayer2);
+    return getAdvantageOrWinScores(pointsPlayer1, pointsPlayer2);
   } else {
-    score = getRegularScores(tempScore, pointsPlayer1, score, pointsPlayer2);
+    return getRegularScores(tempScore, pointsPlayer1, pointsPlayer2);
   }
-
-  return score;
 }
 
 function isTie(pointsPlayer1, pointsPlayer2) {
   return pointsPlayer1 === pointsPlayer2;
 }
 
-function getTieScores(pointsPlayer1, score) {
+function getTieScores(pointsPlayer1, score = '') {
   switch (pointsPlayer1) {
     case 0:
       score = 'Love-All';
@@ -53,7 +50,7 @@ function getAdvantageOrWinScores(pointsPlayer1, pointsPlayer2) {
   }
 }
 
-function getRegularScores(tempScore, pointsPlayer1, score, pointsPlayer2) {
+function getRegularScores(tempScore, pointsPlayer1, pointsPlayer2, score = '') {
   for (let i = 1; i < 3; i++) {
     if (i === 1) {
       tempScore = pointsPlayer1;
