@@ -1,9 +1,13 @@
 'use strict';
 
+function isTie(pointsPlayer1, pointsPlayer2) {
+  return pointsPlayer1 === pointsPlayer2;
+}
+
 function getScore(pointsPlayer1, pointsPlayer2) {
   let score = '';
   let tempScore = 0;
-  if (pointsPlayer1 === pointsPlayer2) {
+  if (isTie(pointsPlayer1, pointsPlayer2)) {
     switch (pointsPlayer1) {
       case 0:
         score = 'Love-All';
