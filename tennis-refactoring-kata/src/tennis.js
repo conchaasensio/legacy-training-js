@@ -1,10 +1,10 @@
 'use strict';
 
-function getScore(m_score1, m_score2) {
+function getScore(pointsPlayer1, pointsPlayer2) {
   let score = '';
   let tempScore = 0;
-  if (m_score1 === m_score2) {
-    switch (m_score1) {
+  if (pointsPlayer1 === pointsPlayer2) {
+    switch (pointsPlayer1) {
       case 0:
         score = 'Love-All';
         break;
@@ -18,8 +18,8 @@ function getScore(m_score1, m_score2) {
         score = 'Deuce';
         break;
     }
-  } else if (m_score1 >= 4 || m_score2 >= 4) {
-    let minusResult = m_score1 - m_score2;
+  } else if (pointsPlayer1 >= 4 || pointsPlayer2 >= 4) {
+    let minusResult = pointsPlayer1 - pointsPlayer2;
     if (minusResult === 1) {
       score = 'Advantage player1';
     } else if (minusResult === -1) {
@@ -32,10 +32,10 @@ function getScore(m_score1, m_score2) {
   } else {
     for (let i = 1; i < 3; i++) {
       if (i === 1) {
-        tempScore = m_score1;
+        tempScore = pointsPlayer1;
       } else {
         score += '-';
-        tempScore = m_score2;
+        tempScore = pointsPlayer2;
       }
       switch (tempScore) {
         case 0:
