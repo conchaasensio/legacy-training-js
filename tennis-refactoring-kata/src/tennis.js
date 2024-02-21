@@ -37,21 +37,9 @@ function getAdvantageOrWinScores(pointsPlayer1, pointsPlayer2) {
   }
 }
 
-function getRegularScores(
-    pointsPlayer1, pointsPlayer2) {
-  let score = '';
-  let tempScore = 0;
+function getRegularScores(pointsPlayer1, pointsPlayer2) {
   let regularScores = ['Love', 'Fifteen', 'Thirty', 'Forty'];
-  for (let i = 1; i < 3; i++) {
-    if (i === 1) {
-      tempScore = pointsPlayer1;
-    } else {
-      score += '-';
-      tempScore = pointsPlayer2;
-    }
-    score += regularScores[tempScore];
-  }
-  return score;
+  return regularScores[pointsPlayer1] + '-' + regularScores[pointsPlayer2];
 }
 
 export default getScore;
