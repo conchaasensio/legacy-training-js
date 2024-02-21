@@ -14,22 +14,17 @@ function isTie(pointsPlayer1, pointsPlayer2) {
   return pointsPlayer1 === pointsPlayer2;
 }
 
-function getTieScores(pointsPlayer1, score = '') {
+function getTieScores(pointsPlayer1) {
   switch (pointsPlayer1) {
     case 0:
-      score = 'Love-All';
-      break;
+      return 'Love-All';
     case 1:
-      score = 'Fifteen-All';
-      break;
+      return 'Fifteen-All';
     case 2:
-      score = 'Thirty-All';
-      break;
+      return 'Thirty-All';
     default:
-      score = 'Deuce';
-      break;
+      return 'Deuce';
   }
-  return score;
 }
 
 function isAdvantageOrWin(pointsPlayer1, pointsPlayer2) {
