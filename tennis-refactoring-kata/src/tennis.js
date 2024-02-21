@@ -1,21 +1,10 @@
 'use strict';
 
-function isAdvantage(pointsPlayer1, pointsPlayer2) {
-  return (pointsPlayer1 >= 4 || pointsPlayer2 >= 4) &&
-      (pointsPlayer1 - pointsPlayer2 === 1 || pointsPlayer1 - pointsPlayer2 ===
-          -1);
-}
-
 function getScore(pointsPlayer1, pointsPlayer2) {
   if (isTie(pointsPlayer1, pointsPlayer2)) {
     return getTieScores(pointsPlayer1);
   } else if (isAdvantage(pointsPlayer1, pointsPlayer2)) {
-    let minusResult = pointsPlayer1 - pointsPlayer2;
-    if (minusResult === 1) {
-      return 'Advantage player1';
-    } else if (minusResult === -1) {
-      return 'Advantage player2';
-    }
+    return getAdvantageScores(pointsPlayer1, pointsPlayer2);
   } else if (pointsPlayer1 >= 4 || pointsPlayer2 >= 4) {
     let minusResult = pointsPlayer1 - pointsPlayer2;
     if (minusResult >= 2) {
@@ -36,6 +25,21 @@ function getTieScores(pointsPlayers) {
   let tieScores = ['Love-All', 'Fifteen-All', 'Thirty-All'];
   return tieScores[pointsPlayers] || 'Deuce';
 
+}
+
+function isAdvantage(pointsPlayer1, pointsPlayer2) {
+  return (pointsPlayer1 >= 4 || pointsPlayer2 >= 4) &&
+      (pointsPlayer1 - pointsPlayer2 === 1 || pointsPlayer1 - pointsPlayer2 ===
+          -1);
+}
+
+function getAdvantageScores(pointsPlayer1, pointsPlayer2) {
+  let minusResult = pointsPlayer1 - pointsPlayer2;
+  if (minusResult === 1) {
+    return 'Advantage player1';
+  } else if (minusResult === -1) {
+    return 'Advantage player2';
+  }
 }
 
 function getRegularScores(pointsPlayer1, pointsPlayer2) {
