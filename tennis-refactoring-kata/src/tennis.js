@@ -29,12 +29,12 @@ function isAdvantage(pointsPlayer1, pointsPlayer2) {
 }
 
 function getAdvantageScores(pointsPlayer1, pointsPlayer2) {
-  let minusResult = pointsPlayer1 - pointsPlayer2;
-  if (minusResult === 1) {
-    return 'Advantage player1';
-  } else if (minusResult === -1) {
-    return 'Advantage player2';
-  }
+  return 'Advantage ' + winningPlayer(pointsPlayer1, pointsPlayer2);
+}
+
+function winningPlayer(pointsPlayer1, pointsPlayer2) {
+  return pointsPlayer1 > pointsPlayer2 ? 'player1' : 'player2';
+
 }
 
 function isWin(pointsPlayer1, pointsPlayer2) {
@@ -42,12 +42,7 @@ function isWin(pointsPlayer1, pointsPlayer2) {
 }
 
 function getWinScores(pointsPlayer1, pointsPlayer2) {
-  let minusResult = pointsPlayer1 - pointsPlayer2;
-  if (minusResult >= 2) {
-    return 'Win for player1';
-  } else {
-    return 'Win for player2';
-  }
+  return 'Win for ' + winningPlayer(pointsPlayer1, pointsPlayer2);
 }
 
 function getRegularScores(pointsPlayer1, pointsPlayer2) {
